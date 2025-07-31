@@ -6,7 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:30:41 by trpham            #+#    #+#             */
-/*   Updated: 2025/07/31 11:30:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/07/31 12:00:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef	MEGAPHONE_HPP
+# define MEGAPHONE_HPP
+
+
+
+#endif

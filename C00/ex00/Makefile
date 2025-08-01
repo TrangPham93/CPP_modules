@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/07/31 16:29:59 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/01 15:36:37 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,19 +15,16 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 
 # Directories
-SRC_DIR		= ./srcs
 OBJ_DIR		=./objs
  
 # Source files
-HEADERS		= Megaphone.hpp
-
-SOURCES		= $(SRC_DIR)/Megaphone.cpp
+SOURCES		= Megaphone.cpp
 
 # Executables
 NAME		= megaphone
 
 # Object files
-OBJECTS		= $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
+OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
 # Target
 all			: $(NAME)
@@ -36,7 +33,7 @@ $(NAME)		: $(OBJECTS)
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.cpp $(HEADERS)
+$(OBJ_DIR)/%.o:	%.cpp
 	@mkdir -p $(@D)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 

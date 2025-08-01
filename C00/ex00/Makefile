@@ -6,13 +6,13 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/07/31 11:59:26 by trpham           ###   ########.fr        #
+#    Updated: 2025/07/31 16:29:59 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+CXX			= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 
 # Directories
 SRC_DIR		= ./srcs
@@ -27,18 +27,18 @@ SOURCES		= $(SRC_DIR)/Megaphone.cpp
 NAME		= megaphone
 
 # Object files
-OBJECTS		= $(patsubst($(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o), $(SOURCES))
+OBJECTS		= $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
 
 # Target
 all			: $(NAME)
 
 $(NAME)		: $(OBJECTS)
-	@$(CC) $(CFLAGS) $(INCLUDES) $^ -o $@
+	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
 
-$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.cpp
+$(OBJ_DIR)/%.o:	$(SRC_DIR)/%.cpp $(HEADERS)
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean		:
 	@if [ -d $(OBJ_DIR) ]; then \

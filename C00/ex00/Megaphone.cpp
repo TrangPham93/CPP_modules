@@ -6,19 +6,19 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:31:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/01 15:31:25 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/01 16:25:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 
-class	Megaphone{
+class	Megaphone {
 	public:
 		// Attribute
 		std::string MyString;
 
 		// Constructor
-		Megaphone(){
+		Megaphone() {
 			MyString = "";
 		};
 };

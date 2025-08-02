@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/01 16:25:59 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/02 14:01:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ class	Contact {
 			Secret = "";
 		}
 
+		// Destructor
+		~Contact();
 };
 
 #endif

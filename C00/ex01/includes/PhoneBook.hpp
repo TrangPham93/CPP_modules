@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/02 14:01:49 by trpham           ###   ########.fr       */
+/*   Created: 2025/08/01 15:44:02 by trpham            #+#    #+#             */
+/*   Updated: 2025/08/04 17:56:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONTACT_HPP
-# define CONTACT_HPP
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-# include <iostream>
+# include <cstring>
+# include <iomanip>
+# include "Contact.hpp"
 
-class	Contact {
+# define MAX 8
+
+class	PhoneBook {
 	public:
-		std::string	FirstName;
-		std::string	LastName;
-		std::string	NickName;
-		std::string	PhoneNumber;
-		std::string	Secret;
 		// Constructor
-		Contact() {
-			FirstName = "";
-			LastName = "";
-			NickName = "";
-			PhoneNumber = "";
-			Secret = "";
-		}
+		PhoneBook();
 
+		// Attributes
+		Contact	ContactList[MAX];
+		int		index;
+		
+		// Method
+		void	AddContact(void);
+		void	SearchContact();
+		
 		// Destructor
-		~Contact();
+		~PhoneBook();
 };
 
 #endif

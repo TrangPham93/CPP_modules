@@ -6,13 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:34:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/02 14:17:44 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/04 18:51:34 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../PhoneBook.hpp"
+#include "../includes/PhoneBook.hpp"
 
-Contact::~Contact(){
+Contact::Contact(){
 	FirstName = "";
 	LastName = "";
 	NickName = "";
@@ -20,7 +20,9 @@ Contact::~Contact(){
 	Secret = "";
 }
 
-bool	validate_phone_number(std::string PhoneNumber)
+Contact::~Contact(){}
+
+static bool	validate_phone_number(std::string PhoneNumber)
 {
 	if (PhoneNumber.length() != 10)
 		return (false);
@@ -32,15 +34,10 @@ bool	validate_phone_number(std::string PhoneNumber)
 	return (true);
 }
 
-void	add_phonebook()
-{
-	
-	std::cout << "New contact is added!\n";
-}
-
 void	PhoneBook::AddContact(void)
 {
 	Contact	NewContact;
+	int		phone_book_index;
 	
 	std::cout << "First name : ";
 	std::cin >>	NewContact.FirstName;
@@ -57,14 +54,9 @@ void	PhoneBook::AddContact(void)
 	}
 	std::cout << "Darkest secret : ";
 	std::cin >>	NewContact.Secret;
-	add_phonebook();
+	index++;
+	phone_book_index = index % 8;
+	ContactList[phone_book_index] = NewContact;
+	std::cout << "New contact is added at index " << index << std::endl;
 	return ;
 }
-
-
-
-// void	PhoneBook::SearchContact(unsigned int index)
-// {
-
-// }
-

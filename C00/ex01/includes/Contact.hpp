@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/01 15:44:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/02 13:58:00 by trpham           ###   ########.fr       */
+/*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
+/*   Updated: 2025/08/02 14:01:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef CONTACT_HPP
+# define CONTACT_HPP
 
-# include <cstring>
-# include "Contact.hpp"
+# include <iostream>
 
-class	PhoneBook {
+class	Contact {
 	public:
-		// Attributes
-		Contact	ContactList[8];
-
-		// Method
-		void	AddContact(void);
-		// void	SearchContact(unsigned int index);
-		
 		// Constructor
-		PhoneBook();
+		Contact();
+		// Contact(
+		// 	std::string	FirstName,
+		// 	std::string	LastName,
+		// 	std::string	NickName,
+		// 	std::string	PhoneNumber,
+		// 	std::string	Secret);
+		
+		// Attribute
+		std::string	FirstName;
+		std::string	LastName;
+		std::string	NickName;
+		std::string	PhoneNumber;
+		std::string	Secret;
 
 		// Destructor
-		~PhoneBook();
+		~Contact();
 };
 
 #endif

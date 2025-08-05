@@ -6,14 +6,14 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/01 15:32:19 by trpham            #+#    #+#              #
-#    Updated: 2025/08/04 22:27:30 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/05 11:31:25 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 # Compiler and flags
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Directories
 OBJ_DIR		=./objs

@@ -39,8 +39,8 @@ public:
 
 
 private:
-
-	static int	_nbAccounts;
+	//static member varriables are shared by objects, cannot be initialized using constructors
+	static int	_nbAccounts; 
 	static int	_totalAmount;
 	static int	_totalNbDeposits;
 	static int	_totalNbWithdrawals;

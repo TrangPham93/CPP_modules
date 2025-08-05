@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/02 14:01:49 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/05 15:08:58 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ class	Contact {
 	public:
 		// Constructor
 		Contact();
-		// Contact(
-		// 	std::string	FirstName,
-		// 	std::string	LastName,
-		// 	std::string	NickName,
-		// 	std::string	PhoneNumber,
-		// 	std::string	Secret);
 		
 		// Attribute
 		std::string	FirstName;

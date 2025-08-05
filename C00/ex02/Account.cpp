@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:04:12 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 15:06:29 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/05 15:23:42 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void	Account::makeDeposit( int deposit )
 		this->_amount += deposit;
 		Account::_totalAmount += deposit;
 	}
-	
 	std::cout << ";deposit:" << deposit << ";amount:" << _amount
 			<< ";nb_deposits:" << _nbDeposits << std::endl;
 }
@@ -93,7 +92,6 @@ bool	Account::makeWithdrawal( int withdrawal )
 		std::cout << ";withdrawal:refused" << std::endl;
 		return (false);
 	}
-	
 	if (withdrawal > 0 && withdrawal <= this->_amount)
 	{
 		this->_nbWithdrawals++;
@@ -122,20 +120,12 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
-	char	output[15];
+	char	output[20];
 	time_t	timmestamp;
 	struct tm *datetime;
 	
 	time(&timmestamp);
 	datetime = localtime(&timmestamp);
-	try
-	{
-		strftime(output, 15, "%Y%m%d_%H%M%S", datetime);
-		std::cout << "[" << output << "] ";
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "strftime error \n";	
-	}
-	
+	strftime(output, 20, "%Y%m%d_%H%M%S", datetime);
+	std::cout << "[" << output << "] ";
 }

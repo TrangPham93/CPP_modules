@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:52:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/04 19:09:07 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/05 17:08:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,58 @@
 
 PhoneBook::PhoneBook()
 {
-	index = -1;
+	index = 0;
 }
 
 PhoneBook::~PhoneBook(){}
 
 static std::string truncate_to_ten(std::string str)
 {	
-	return (str.length() <= 10 ? str : str.substr(0, 9) + ".");
+	if (str.length() <= 10)
+		return (str);
+	return (str.substr(0, 9) + ".");
 }
 
-static void	display_contact(Contact *ContactList, int search_index)
+static void display_phonebook(Contact *ContactList, int index)
 {
+	int	phonebook_end;
+	
+	if (index < 8)
+		phonebook_end = index;
+	else
+		phonebook_end = 8;
 	std::cout << std::right << std::setw(10) << "Index" << "|"
 		<< std:: right << std::setw(10) << "First name" << "|"
 		<< std:: right << std::setw(10) << "Last name" << "|" 
 		<< std:: right << std::setw(10) << "Nickname" << std::endl;
-	std::cout << std::right << std::setw(10) << search_index << "|" 
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[search_index].FirstName) << "|" 
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[search_index].LastName) << "|"
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[search_index].NickName) << std::endl;
+	for (int i = 0; i < phonebook_end; i++)
+		std::cout << std::right << std::setw(10) << i + 1 << "|" 
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].FirstName) << "|" 
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].LastName) << "|"
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].NickName) << std::endl;
+}
+
+static void	display_contact(Contact *ContactList, int search_index)
+{
+	std::cout << std::left << std::setw(15) << "First name" << ":" << ContactList[search_index].FirstName << std::endl;
+	std::cout << std::left << std::setw(15) << "Last name" << ":" << ContactList[search_index].LastName << std::endl;
+	std::cout << std::left << std::setw(15) << "Nickname" << ":" << ContactList[search_index].NickName << std::endl;
+	std::cout << std::left << std::setw(15) << "Phone number" << ":" << ContactList[search_index].PhoneNumber << std::endl;
+	std::cout << std::left << std::setw(15) << "Dark secret" << ":" << ContactList[search_index].Secret << std::endl;
 }
 
 static bool	validate_index(std::string search_string)
 {
 	if (search_string.length() != 1)
+	{
+		std::cout << "ERROR: Number in range 1 and 8 included" <<std::endl;
 		return (false);
-	if (search_string[0] < '0' || search_string[0] > '7')
+	}
+	if (search_string[0] < '1' || search_string[0] > '8')
+	{
+		std::cout << "ERROR: Must be a valid number" <<std::endl;
 		return (false);
+	}
 	return (true);
 }
 
@@ -50,25 +74,19 @@ void	PhoneBook::SearchContact()
 	std::string	search_str;
 	int			search_index;
 	
+	display_phonebook(ContactList, PhoneBook::index);
 	while (1)
 	{
-		std::cout << "Input contact index (number between 0 - 7) : ";
+		std::cout << "See contact details (number between 1 - 8) : ";
 		std::cin >> search_str;
-		if (search_str == "EXIT")
-			break;
-		if (!validate_index(search_str))
-		{
-			std::cout << "Invalid index" << std::endl;
-			continue ;
-		}
-		search_index = search_str[0] - '0';
-		if (search_index > index)
-		{
-			std::cout << "No contact saved at this index yet\n";
-			continue;
-		}
-		display_contact(ContactList, search_index);
+		if (validate_index(search_str))
+			break ;
 	}
+	search_index = search_str[0] - '0';
+	if (search_index - 1 >= index)
+	{
+		std::cout << "No contact saved at this index yet\n";
+		return ;
+	}
+	display_contact(ContactList, search_index - 1);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:34:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/04 18:51:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/05 17:10:06 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	PhoneBook::AddContact(void)
 	}
 	std::cout << "Darkest secret : ";
 	std::cin >>	NewContact.Secret;
-	index++;
 	phone_book_index = index % 8;
 	ContactList[phone_book_index] = NewContact;
-	std::cout << "New contact is added at index " << index << std::endl;
+	std::cout << "New contact is added at index " << phone_book_index + 1 << std::endl;
+	PhoneBook::index++;
 	return ;
 }

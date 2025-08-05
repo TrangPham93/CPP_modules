@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:31:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/01 16:25:03 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/05 15:08:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ class	Megaphone {
 		std::string MyString;
 
 		// Constructor
-		Megaphone() {
-			MyString = "";
-		};
+		Megaphone();
 };
+
+Megaphone::Megaphone(): MyString(""){}
 
 int	main(int ac, char **av)
 {

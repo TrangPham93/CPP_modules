@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:52:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 16:42:21 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 19:57:48 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 PhoneBook::PhoneBook(void)
 {
-	index = 0;
+	_index = 0;
 }
 
 PhoneBook::~PhoneBook(void){}
@@ -79,7 +79,7 @@ void	PhoneBook::SearchContact()
 	std::string	search_str;
 	int			search_index;
 	
-	display_phonebook(ContactList, PhoneBook::index);
+	display_phonebook(PhoneBook::_ContactList, PhoneBook::_index);
 	while (1)
 	{
 		std::cout << "See contact details (number between 1 - 8) : ";
@@ -90,10 +90,10 @@ void	PhoneBook::SearchContact()
 			break ;
 	}
 	search_index = search_str[0] - '0';
-	if (search_index - 1 >= index)
+	if (search_index - 1 >= PhoneBook::_index)
 	{
 		std::cout << "No contact saved at this index yet\n";
 		return ;
 	}
-	display_contact(ContactList, search_index - 1);
+	display_contact(PhoneBook::_ContactList, search_index - 1);
 }

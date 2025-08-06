@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:34:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 16:42:43 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 23:38:28 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,52 +75,68 @@ static bool	validate_phone_number(std::string PhoneNumber)
 	return (true);
 }
 
-void	PhoneBook::AddContact(void)
+Contact	Contact::askInput( void )
 {
 	Contact		NewContact;
-	int			phone_book_index;
 	std::string	input;
 	
 	std::cout << "First name : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		return;
+		return (Contact()) ;
 	NewContact.set_first_name(input);
 	
 	std::cout << "Last name : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		return;
+		return (Contact()) ;
 	NewContact.set_last_name(input);
 	
 	std::cout << "Nickname : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		return;
+		return (Contact()) ;
 	NewContact.set_nickname(input);
 	
 	std::cout << "Phone number (10 digits) : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		return;
+		return (Contact()) ;
 	while (!validate_phone_number(input))
 	{
 		std::cout << "Incorect phone number, please input again : ";
 		std::cin >> input;
 		if (std::cin.eof())
-			return;
+			return (Contact()) ;
 	}
 	NewContact.set_phonenumber(input);
 	
 	std::cout << "Darkest secret : ";
 	std::cin >> input;
 	if (std::cin.eof())
-		return;
+		return (Contact()) ;
 	NewContact.set_secret(input);
-	
-	phone_book_index = index % 8;
-	ContactList[phone_book_index] = NewContact;
-	std::cout << "New contact is added at index " << phone_book_index + 1 << std::endl;
-	PhoneBook::index++;
+	return (NewContact);
+}
+
+bool Contact::is_valid( void )
+{
+	return (!_firstName.empty() && !_lastName.empty() && !_nickName.empty()
+	&& !_phoneNumber.empty() && !_secret.empty());
+}
+
+void	PhoneBook::AddContact(void)
+{
+	Contact		NewContact;
+	int			phone_book_index;
+
+	NewContact = Contact::askInput();
+	if (NewContact.is_valid())
+	{
+		phone_book_index = PhoneBook::_index % 8;
+		_ContactList[phone_book_index] = NewContact;
+		std::cout << "New contact is added at index " << phone_book_index + 1 << std::endl;
+		PhoneBook::_index++;
+	}
 	return ;
 }

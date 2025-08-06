@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:44:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 16:42:09 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 19:55:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@
 # define MAX 8
 
 class	PhoneBook {
+	private:
+		Contact	_ContactList[MAX];
+		int		_index;
+		
 	public:
 		// Constructor
 		PhoneBook(void);
-
-		// Attributes
-		Contact	ContactList[MAX];
-		int		index;
 		
 		// Method
 		void	AddContact(void);

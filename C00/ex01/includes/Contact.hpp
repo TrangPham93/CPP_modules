@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 15:08:58 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 16:42:54 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,30 @@
 class	Contact {
 	public:
 		// Constructor
-		Contact();
-		
-		// Attribute
-		std::string	FirstName;
-		std::string	LastName;
-		std::string	NickName;
-		std::string	PhoneNumber;
-		std::string	Secret;
-
+		Contact(void);
 		// Destructor
-		~Contact();
+		~Contact(void);
+		
+		std::string	get_first_name(void);
+		std::string	get_last_name(void);
+		std::string	get_nickname(void);
+		std::string	get_phone_number(void);
+		std::string	get_secret(void);
+		void		set_first_name(std::string firstName);
+		void		set_last_name(std::string lastName);
+		void		set_nickname(std::string nickname);
+		void		set_phonenumber(std::string phoneNumber);
+		void		set_secret(std::string secret);
+
+		
+	private:
+		// Attribute
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+		std::string	_phoneNumber;
+		std::string	_secret;
+
 };
 
 #endif

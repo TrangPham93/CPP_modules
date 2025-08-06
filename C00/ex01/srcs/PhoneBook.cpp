@@ -6,18 +6,18 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:52:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 17:08:22 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 16:42:21 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PhoneBook.hpp"
 
-PhoneBook::PhoneBook()
+PhoneBook::PhoneBook(void)
 {
 	index = 0;
 }
 
-PhoneBook::~PhoneBook(){}
+PhoneBook::~PhoneBook(void){}
 
 static std::string truncate_to_ten(std::string str)
 {	
@@ -40,18 +40,23 @@ static void display_phonebook(Contact *ContactList, int index)
 		<< std:: right << std::setw(10) << "Nickname" << std::endl;
 	for (int i = 0; i < phonebook_end; i++)
 		std::cout << std::right << std::setw(10) << i + 1 << "|" 
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].FirstName) << "|" 
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].LastName) << "|"
-		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].NickName) << std::endl;
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].get_first_name()) << "|" 
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].get_last_name()) << "|"
+		<< std::right << std::setw(10) << truncate_to_ten(ContactList[i].get_first_name()) << std::endl;
 }
 
 static void	display_contact(Contact *ContactList, int search_index)
 {
-	std::cout << std::left << std::setw(15) << "First name" << ":" << ContactList[search_index].FirstName << std::endl;
-	std::cout << std::left << std::setw(15) << "Last name" << ":" << ContactList[search_index].LastName << std::endl;
-	std::cout << std::left << std::setw(15) << "Nickname" << ":" << ContactList[search_index].NickName << std::endl;
-	std::cout << std::left << std::setw(15) << "Phone number" << ":" << ContactList[search_index].PhoneNumber << std::endl;
-	std::cout << std::left << std::setw(15) << "Dark secret" << ":" << ContactList[search_index].Secret << std::endl;
+	std::cout << std::left << std::setw(15) << "First name" << ":"
+		<< ContactList[search_index].get_first_name() << std::endl;
+	std::cout << std::left << std::setw(15) << "Last name" << ":"
+		<< ContactList[search_index].get_last_name() << std::endl;
+	std::cout << std::left << std::setw(15) << "Nickname" << ":" 
+		<< ContactList[search_index].get_nickname() << std::endl;
+	std::cout << std::left << std::setw(15) << "Phone number" << ":" 
+		<< ContactList[search_index].get_phone_number() << std::endl;
+	std::cout << std::left << std::setw(15) << "Dark secret" << ":" 
+		<< ContactList[search_index].get_secret() << std::endl;
 }
 
 static bool	validate_index(std::string search_string)
@@ -79,6 +84,8 @@ void	PhoneBook::SearchContact()
 	{
 		std::cout << "See contact details (number between 1 - 8) : ";
 		std::cin >> search_str;
+		if (std::cin.eof())
+			return;
 		if (validate_index(search_str))
 			break ;
 	}

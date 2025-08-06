@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 17:23:29 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/04 18:44:06 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 17:02:05 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,24 @@ int	main()
 	{
 		std::cout << "How could I help ? ADD, SEARCH OR EXIT : ";
 		std::cin >> input;
-		
+		if (std::cin.eof())
+		{
+			std::cout << "\nEOF reached. Exiting." << std::endl;
+			break;
+		}
 		if (input == "ADD")
 			phonebook.AddContact();
 		else if (input == "SEARCH")
 			phonebook.SearchContact();
 		else if (input == "EXIT")
-			exit(EXIT_SUCCESS);
+			return (0);
 		else
-			std::cout << "Invalid input! \n";
+			std::cout << "Invalid input!" << std::endl;
+		if (std::cin.eof())
+		{
+			std::cout << "\nEOF reached. Exiting." << std::endl;
+			break;
+		}
 	}
-	return 0;
+	return (0);
 }

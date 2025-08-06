@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:44:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 17:05:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 16:42:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 class	PhoneBook {
 	public:
 		// Constructor
-		PhoneBook();
+		PhoneBook(void);
 
 		// Attributes
 		Contact	ContactList[MAX];
@@ -30,10 +30,10 @@ class	PhoneBook {
 		
 		// Method
 		void	AddContact(void);
-		void	SearchContact();
+		void	SearchContact(void);
 		
 		// Destructor
-		~PhoneBook();
+		~PhoneBook(void);
 };
 
 #endif

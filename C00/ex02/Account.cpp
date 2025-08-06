@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:04:12 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 15:23:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 18:06:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,10 +114,12 @@ void	Account::displayStatus( void ) const
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";"
 			<< "amount:" << _amount << ";" 
-			<< "deposit:" << _nbDeposits << ";"
-			<< "withdrawal:" << _nbWithdrawals << std::endl;
+			<< "deposits:" << _nbDeposits << ";"
+			<< "withdrawals:" << _nbWithdrawals << std::endl;
 }
 
+// std::cout << "[19920104_091532]";
+// diff outfile log
 void	Account::_displayTimestamp( void )
 {
 	char	output[20];

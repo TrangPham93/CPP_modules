@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Megaphone.cpp                                      :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 11:31:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/05 15:08:47 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/06 17:08:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include <iostream>
 
-class	Megaphone {
-	public:
-		// Attribute
-		std::string MyString;
-
-		// Constructor
-		Megaphone();
-};
-
-Megaphone::Megaphone(): MyString(""){}
-
 int	main(int ac, char **av)
 {
-	Megaphone	MyObj;
-		
+	std::string	myString;
+	
 	if (ac == 1){
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 		return 0;
 	}
 	
 	for (int i = 1; i < ac; i++)
-		MyObj.MyString += av[i];
-	for (unsigned int index = 0; index < MyObj.MyString.length(); index++)
-		std::cout << char(std::toupper(MyObj.MyString[index]));
+		myString += av[i];
+	for (unsigned int index = 0; index < myString.length(); index++)
+		std::cout << char(std::toupper(myString[index]));
 	std::cout << std::endl;
 	
 	return 0;

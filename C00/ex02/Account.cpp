@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:04:12 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/07 11:37:58 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 11:39:18 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,11 +123,11 @@ void	Account::displayStatus( void ) const
 // diff outfile log
 void	Account::_displayTimestamp( void )
 {
-	time_t		timmestamp;
+	time_t		timestamp;
 	struct tm	*datetime;
 	
-	time(&timmestamp);
-	datetime = localtime(&timmestamp);
+	time(&timestamp);
+	datetime = localtime(&timestamp);
 	
 	std::cout << "[" << datetime->tm_year + 1900 
 			<< std::setw(2) << std::setfill('0') << (datetime->tm_mon + 1)

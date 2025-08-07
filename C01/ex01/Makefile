@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/08/07 15:41:02 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/07 17:37:52 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
+SOURCES		= main.cpp Zombie.cpp zombieHorde.cpp
 HEADERS		= Zombie.hpp
 
 # Executables
-NAME		= zombie
+NAME		= zombieHorde
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))

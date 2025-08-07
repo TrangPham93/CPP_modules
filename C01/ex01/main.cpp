@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:20:06 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/07 16:34:01 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 17:56:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,24 @@
 
 int	main( void )
 {
-	Zombie*	heapZombie = newZombie("heapZombie");
-	if (heapZombie)
+	Zombie*		newHorde;
+	int			N;
+	std::string	name;
+
+	N = 100000;
+	name = "JUMBO";
+
+	newHorde = zombieHorde(N, name);
+	if (!newHorde)
+		return (1);
+	
+	for (int i = 0; i < N; i++)
 	{
-		std::cout << "Zombie on heap: " << heapZombie->get_name() << std::endl;
-		heapZombie->announce();
-		delete	heapZombie;
+		newHorde[i].announce();
 	}
 	
-	std::cout << "Zombie on stack: stackZombie" << std::endl;
-	randomChump("stackZombie");
-	
-	
+	delete[]	newHorde;
+	newHorde = nullptr;
+
 	return (0);
 }

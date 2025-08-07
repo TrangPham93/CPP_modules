@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:09:18 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/07 16:27:38 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 17:33:48 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ void	Zombie::set_name(std::string name)
 
 void	Zombie::announce( void )
 {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ...\n";
+	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 12:09:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/07 16:33:52 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 17:34:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ class Zombie
 		void		announce( void );
 };
 	
-// Zombie*				newZombie( std::string name );
-// void				randomChump( std::string name );
 Zombie* 			zombieHorde( int N, std::string name );
 
 #endif

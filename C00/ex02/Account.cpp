@@ -6,12 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 12:04:12 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 18:06:29 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 11:37:58 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
+#include <iomanip>
 #include <ctime>
 
 int	Account::_nbAccounts = 0; // indexing
@@ -122,12 +123,16 @@ void	Account::displayStatus( void ) const
 // diff outfile log
 void	Account::_displayTimestamp( void )
 {
-	char	output[20];
-	time_t	timmestamp;
-	struct tm *datetime;
+	time_t		timmestamp;
+	struct tm	*datetime;
 	
 	time(&timmestamp);
 	datetime = localtime(&timmestamp);
-	strftime(output, 20, "%Y%m%d_%H%M%S", datetime);
-	std::cout << "[" << output << "] ";
+	
+	std::cout << "[" << datetime->tm_year + 1900 
+			<< std::setw(2) << std::setfill('0') << (datetime->tm_mon + 1)
+			<< std::setw(2) << datetime->tm_mday
+			<< "_" << std::setw(2) << datetime->tm_hour 
+			<< std::setw(2) << datetime->tm_min 
+			<< std::setw(2) << datetime->tm_sec << "] ";
 }

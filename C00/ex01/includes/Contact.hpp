@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 15:59:03 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 23:24:39 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 10:40:41 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class	Contact {
 		void		set_nickname(std::string nickname);
 		void		set_phonenumber(std::string phoneNumber);
 		void		set_secret(std::string secret);
-		static Contact	askInput( void );
-		bool		is_valid();
+		Contact		askInput( void );
+		bool		is_valid(void);
 
 		
 	private:

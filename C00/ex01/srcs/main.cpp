@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 17:23:29 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 20:00:45 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 10:54:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main()
 {
-	PhoneBook	phonebook;
+	PhoneBook		phonebook;
 	std::string		input;
 	
 	std::cout << "Please type: \n ADD to add a new contact \n SEARCH to search an existing contact \n EXIT to exit the program." << std::endl;

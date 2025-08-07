@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/01 16:34:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/06 23:38:28 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/07 11:38:20 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,12 +130,12 @@ void	PhoneBook::AddContact(void)
 	Contact		NewContact;
 	int			phone_book_index;
 
-	NewContact = Contact::askInput();
+	NewContact = NewContact.askInput();
 	if (NewContact.is_valid())
 	{
 		phone_book_index = PhoneBook::_index % 8;
 		_ContactList[phone_book_index] = NewContact;
-		std::cout << "New contact is added at index " << phone_book_index + 1 << std::endl;
+		std::cout << "New contact is added at index " << (phone_book_index + 1) << std::endl;
 		PhoneBook::_index++;
 	}
 	return ;

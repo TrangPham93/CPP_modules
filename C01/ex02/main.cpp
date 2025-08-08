@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 20:42:09 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/07 21:01:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/08 12:32:45 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,14 @@ int	main(void)
 	std::string*	stringPTR = &str;
 	std::string&	stringREF = str; 
 	
-	std::cout << "Memory address of str var:	" << &str << std::endl;
+	std::cout << "Memory address of str var	 :	" << &str << std::endl;
 	std::cout << "Memory address of stringPTR:	" << stringPTR << std::endl;
 	std::cout << "Memory address of stringREF:	" << &stringREF << std::endl;
 	
 	std::cout << "---------------------------" << std::endl;
-	std::cout << "Value of str var: " << str << std::endl;
-	std::cout << "Value of str var: " << *stringPTR << std::endl;
-	std::cout << "Value of str var: " << stringREF << std::endl;
+	std::cout << "Value of str var		: " << str << std::endl;
+	std::cout << "Value of str stringPTR: " << *stringPTR << std::endl;
+	std::cout << "Value of str stringREF: " << stringREF << std::endl;
 	
 	return 0;
 }

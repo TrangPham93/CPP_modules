@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/08/09 21:38:58 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/09 23:54:20 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,7 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Sed.cpp
-HEADERS		= Sed.hpp
+SOURCES		= main.cpp
 
 # Executables
 NAME		= sed
@@ -35,7 +34,7 @@ $(NAME)		: $(OBJECTS)
 	@echo "💻 Make succeeded."
 	@echo "Usage: ./sed <filename> <s1: to be replace> <s2>"
 
-$(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
+$(OBJ_DIR)/%.o:	%.cpp
 	@mkdir -p $(@D)
 	@$(CXX) $(CXXFLAGS) -c $< -o $@
 

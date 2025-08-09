@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/08/08 17:07:11 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/09 21:38:58 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
+	@echo "Usage: ./sed <filename> <s1: to be replace> <s2>"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

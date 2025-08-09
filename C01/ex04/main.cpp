@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:25:48 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/08 17:21:51 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/09 21:38:51 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 
 
-static std::string	ft_replace(std::string read_str, 
-	std::string s1, std::string s2)
-{
+// static std::string	ft_replace(std::string read_str, 
+// 	std::string s1, std::string s2)
+// {
 	
-	read_str.find(s1);
+// 	read_str.find(s1);
 	
-	return (read_str);
-}
+// 	return (read_str);
+// }
 
 int	main(int ac, char **av)
 {
@@ -62,7 +62,7 @@ int	main(int ac, char **av)
 	{
 		while (std::getline(infile, read_str)) // while reading not fail
 		{
-			read_str = ft_replace(read_str);
+			// read_str = ft_replace(read_str);
 			outfile << read_str << std::endl;
 		}
 		if (infile.eof())

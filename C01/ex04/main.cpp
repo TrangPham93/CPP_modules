@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/08 13:25:48 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/10 00:49:56 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/10 01:12:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,18 +84,24 @@ int	main(int ac, char **av)
 	{
 		std::cout << new_file_name << " already exists, cannot recreate" 
 			<< std::endl;
+		infile.close();
+		checkfile.close();
 		return (EXIT_FAILURE);
 	}
-	
+
 	// create file .replace in writing mode
 	std::ofstream	outfile(new_file_name);
 	if (!outfile.is_open())
 	{
 		std::cout << filename << ".replace cannot be created" << std::endl;
+		infile.close();
 		return (EXIT_FAILURE);
 	}
 	
 	write_infile_to_outfile(infile, outfile, s1, s2);
+	
+	infile.close();
+	outfile.close();
 	
 	return (EXIT_SUCCESS);
 }

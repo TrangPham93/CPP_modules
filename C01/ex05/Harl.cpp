@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 13:19:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/09 15:13:43 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/09 20:00:08 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void Harl::debug( void )
 {
 	std::cout << "DEBUG: 🐞🪲🐛👾" << std::endl;
 }
+
 void Harl::info( void )
 {
 	std::cout << "INFO: 🚀🚁🚂🚃🚄 " << std::endl;
@@ -60,4 +61,3 @@ void Harl::complain( std::string level )
 			(this->*funcArr[i])();
 	}
 }
-

@@ -6,15 +6,53 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 13:18:46 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/09 20:24:59 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/09 21:35:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int	main(int ac, char **av)
+static Level	string_to_enum(std::string s)
+{
+	if (s == "DEBUG")
+		return DEBUG;
+	if (s == "INFO")
+		return INFO;
+	if (s == "WARNING")
+		return WARNING;
+	return ERROR;
+}
+
+static void	print_level(std::string cmd)
 {
 	Harl		newHarl;
+	
+	switch (string_to_enum(cmd))
+	{
+		case DEBUG:
+			std::cout << "[ " << "DEBUG" << " ]" << std::endl;
+			newHarl.complain("DEBUG");
+			std::cout << std::endl;
+			[[fallthrough]];
+		case INFO:
+			std::cout << "[ " << "INFO" << " ]" << std::endl;
+			newHarl.complain("INFO");
+			std::cout << std::endl;
+			[[fallthrough]];
+		case WARNING:
+			std::cout << "[ " << "WARNING" << " ]" << std::endl;
+			newHarl.complain("WARNING");
+			std::cout << std::endl;
+			[[fallthrough]];
+		case ERROR:
+			std::cout << "[ " << "ERROR" << " ]" << std::endl;
+			newHarl.complain("ERROR");
+			break;
+	}
+}
+
+int	main(int ac, char **av)
+{
 	std::string	cmd;
 	
 	if (ac != 2)
@@ -34,18 +72,6 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	
-	switch (Level)
-	{
-	case DEBUG:
-		newHarl.complain("DEBUG");
-	case INFO:
-		newHarl.complain("INFO");
-	case WARNING:
-		newHarl.complain("WARNING");
-	case ERROR:
-		newHarl.complain("ERROR");
-		break;
-	}
-	
+	print_level(cmd);
 	return (EXIT_SUCCESS);
 }

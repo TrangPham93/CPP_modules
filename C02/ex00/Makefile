@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/08/09 20:33:01 by trpham           ###   ########.fr        #
+#    Updated: 2025/08/11 13:53:12 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Harl.cpp
-HEADERS		= Harl.hpp
+SOURCES		= main.cpp Fixed.cpp
+HEADERS		= Fixed.hpp
 
 # Executables
-NAME		= harlFilter
+NAME		= fixed
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./harlFilter <debug / info / warning / error"
+	@echo "Usage: ./fixed"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

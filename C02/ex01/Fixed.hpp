@@ -6,13 +6,14 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/11 16:13:04 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 16:23:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
+# include <iostream>
+# include <cmath>
 
 /* 
 	Floating point number representation:
@@ -26,6 +27,14 @@ private:
 	
 public:
 	Fixed(void);
+
+	/* 
+	intNum << 8 = intNum * 2^8 = intNum * 256 = (1 << 8)
+	left shift only work with int.
+ 	you always store numbers in _rawValue as an integer, but you interpret them as real numbers by dividing by 2fractionBit2fractionBit when reading
+	int = 32 bits:[sign = 1 bit][interger bits = 23 bit][fraction bit = 8]*/
+	Fixed(const int intNum);
+	Fixed(const float fNum);
 	~Fixed();
 	
 	/* copy constructor
@@ -46,6 +55,13 @@ public:
 
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
+	float	toFloat( void ) const;
+	int		toInt( void ) const;
 };
 
+/* Operator overloading:
+	Redefine the way operator works for user-defined type
+	Left side of operand is returned to ostream, so it cannot be inside class
+*/
+std::ostream& operator << (std::ostream& os, const Fixed& other);
 

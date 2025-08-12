@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/11 15:58:16 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 16:34:54 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ const int Fixed::_fractionBit = 8;
 Fixed::Fixed(void): _rawValue{0}
 {
 	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int	intNum)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_rawValue = intNum * (1 << _fractionBit);
+}
+
+Fixed::Fixed(const float fNum)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_rawValue = static_cast<int>(std::roundf(fNum * (1 << _fractionBit)));
 }
 
 Fixed::~Fixed()
@@ -38,13 +50,28 @@ Fixed& Fixed::operator = (const Fixed& copy)
 	return (*this);
 }
 
+std::ostream& operator<< (std::ostream& os, const Fixed& other)
+{
+	os << other.toFloat();
+	return (os);
+}
+
 int		Fixed::getRawBits( void ) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return _rawValue;
 }
 
 void	Fixed::setRawBits( int const raw )
 {
 	_rawValue = raw;
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (static_cast<float>(_rawValue) / (1 << _fractionBit));
+}
+
+int	Fixed::toInt( void ) const
+{
+	return (_rawValue / (1 << _fractionBit));
 }

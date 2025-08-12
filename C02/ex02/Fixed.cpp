@@ -1,0 +1,134 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
+/*   Updated: 2025/08/12 18:15:14 by trpham           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Fixed.hpp"
+
+const int Fixed::_fractionBit = 8;
+
+Fixed::Fixed(void): _rawValue{0}
+{
+	std::cout << "Default constructor called" << std::endl;
+}
+
+Fixed::Fixed(const int	intNum)
+{
+	std::cout << "Int constructor called" << std::endl;
+	_rawValue = intNum * (1 << _fractionBit);
+}
+
+Fixed::Fixed(const float fNum)
+{
+	std::cout << "Float constructor called" << std::endl;
+	_rawValue = static_cast<int>(std::roundf(fNum * (1 << _fractionBit)));
+}
+
+Fixed::~Fixed()
+{
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed(const Fixed& copy)
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = copy;
+}
+
+Fixed& Fixed::operator = (const Fixed& copy)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &copy) //checks if the object you are assigning to is different from the object you are assigning from.
+		this->_rawValue = copy.getRawBits();
+	return (*this);
+}
+
+std::ostream& operator<< (std::ostream& os, const Fixed& other)
+{
+	os << other.toFloat();
+	return (os);
+}
+
+int		Fixed::getRawBits( void ) const
+{
+	return _rawValue;
+}
+
+void	Fixed::setRawBits( int const raw )
+{
+	_rawValue = raw;
+}
+
+float	Fixed::toFloat( void ) const
+{
+	return (static_cast<float>(_rawValue) / (1 << _fractionBit));
+}
+
+int	Fixed::toInt( void ) const
+{
+	return (_rawValue / (1 << _fractionBit));
+}
+
+bool	Fixed::operator> (const Fixed& other) const
+{
+	return (this->_rawValue > other._rawValue);
+}
+
+bool	Fixed::operator< (const Fixed& other) const
+{
+	return (this->_rawValue < other._rawValue);
+}
+
+bool	Fixed::operator>= (const Fixed& other) const
+{
+	return (this->_rawValue >= other._rawValue);
+}
+
+bool	Fixed::operator<= (const Fixed& other) const
+{
+	return (this->_rawValue <= other._rawValue);
+}
+
+bool	Fixed::operator== (const Fixed& other) const
+{
+	return (this->_rawValue == other._rawValue);
+}
+
+// @attention	operator== has been defined over, so can use obj comparison
+bool	Fixed::operator!= (const Fixed& other) const
+{
+	return !(*this == other);
+}
+
+Fixed	Fixed::operator+ (const Fixed&other)
+{
+	return Fixed(this->_rawValue + other._rawValue);
+}
+
+Fixed	Fixed::operator- (const Fixed&other)
+{
+	this->_rawValue = this->_rawValue - other._rawValue;
+	return (*this);
+}
+
+Fixed	Fixed::operator* (const Fixed&other)
+{
+	this->_rawValue = this->_rawValue * other._rawValue;
+	return (*this);
+}
+
+Fixed	Fixed::operator/ (const Fixed&other)
+{
+	if (!other._rawValue)
+		this->_rawValue = NAN;
+	else
+		this->_rawValue = this->_rawValue / other._rawValue;
+	return (*this);
+}

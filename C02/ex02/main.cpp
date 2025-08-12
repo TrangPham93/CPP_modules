@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:34:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 18:03:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 19:15:12 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int main( void )
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+	
 	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	// std::cout << Fixed::max( a, b ) << std::endl;
 	
 	return 0;
 }

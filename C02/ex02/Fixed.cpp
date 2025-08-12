@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 18:15:14 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 19:13:21 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@ const int Fixed::_fractionBit = 8;
 
 Fixed::Fixed(void): _rawValue{0}
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int	intNum)
 {
-	std::cout << "Int constructor called" << std::endl;
+	// std::cout << "Int constructor called" << std::endl;
 	_rawValue = intNum * (1 << _fractionBit);
 }
 
 Fixed::Fixed(const float fNum)
 {
-	std::cout << "Float constructor called" << std::endl;
+	// std::cout << "Float constructor called" << std::endl;
 	_rawValue = static_cast<int>(std::roundf(fNum * (1 << _fractionBit)));
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Fixed& Fixed::operator = (const Fixed& copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
+	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &copy) //checks if the object you are assigning to is different from the object you are assigning from.
 		this->_rawValue = copy.getRawBits();
 	return (*this);
@@ -107,28 +107,39 @@ bool	Fixed::operator!= (const Fixed& other) const
 	return !(*this == other);
 }
 
-Fixed	Fixed::operator+ (const Fixed&other)
+/* @return: a new Fixed obj with new rawValue, modify neither of objs, keep the fraction of floating point */
+Fixed	Fixed::operator+ (const Fixed&other) const
 {
-	return Fixed(this->_rawValue + other._rawValue);
+	Fixed	f;
+	f._rawValue = this->_rawValue + other._rawValue;
+	return (f);
 }
 
-Fixed	Fixed::operator- (const Fixed&other)
+Fixed	Fixed::operator- (const Fixed&other) const
 {
-	this->_rawValue = this->_rawValue - other._rawValue;
-	return (*this);
+	Fixed	f;
+	f._rawValue = this->_rawValue - other._rawValue;
+	return (f);
 }
 
-Fixed	Fixed::operator* (const Fixed&other)
+/*  @note: 
+	- multiplication of 2 rawValue can overflow, so use int64 to holf temp.
+	- */
+Fixed	Fixed::operator* (const Fixed&other) const
 {
-	this->_rawValue = this->_rawValue * other._rawValue;
-	return (*this);
+	Fixed	f;
+	int64_t temp = static_cast<int64_t>(this->_rawValue) * other._rawValue;
+	f._rawValue = static_cast<int>(temp >> _fractionBit);
+	return (f);
 }
 
-Fixed	Fixed::operator/ (const Fixed&other)
+Fixed	Fixed::operator/ (const Fixed&other) const
 {
-	if (!other._rawValue)
-		this->_rawValue = NAN;
-	else
-		this->_rawValue = this->_rawValue / other._rawValue;
-	return (*this);
+	Fixed	f;
+	
+	if (other._rawValue == 0)
+		throw std::runtime_error("Divided by 0");
+	int64_t	temp = static_cast<int64_t>(this->_rawValue) << _fractionBit;
+	f._rawValue = static_cast<int>(temp / other._rawValue);
+	return (f);
 }

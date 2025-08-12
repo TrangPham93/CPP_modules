@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 18:14:20 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 18:28:32 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,12 @@ public:
 	bool	operator != (const Fixed& other) const;
 
 	// Arithmetic operator
-	Fixed	operator+ (const Fixed& other);
-	Fixed	operator- (const Fixed& other);
-	Fixed	operator* (const Fixed& other);
-	Fixed	operator/ (const Fixed& other);
+	Fixed	operator+ (const Fixed& other) const;
+	Fixed	operator- (const Fixed& other) const;
+	Fixed	operator* (const Fixed& other) const;
+	Fixed	operator/ (const Fixed& other) const;
 	
+	// Increment / decrement operator
 	
 					
 	int		getRawBits( void ) const;

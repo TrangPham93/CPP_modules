@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 22:06:13 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 22:37:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,24 @@ Fixed::Fixed(void): _rawValue{0}
 
 Fixed::Fixed(const int	intNum)
 {
-	_rawValue = intNum * (1 << _fractionBit);
+	int64_t	temp = static_cast<int64_t>(intNum);
+	
+	temp <<= _fractionBit;
+	if (temp < std::numeric_limits<int>::min() 
+			|| temp > std::numeric_limits<int>::max())
+		throw std::overflow_error("Constructor with intNum overflow");
+	_rawValue = static_cast<int>(temp);
 }
 
 Fixed::Fixed(const float fNum)
 {
-	_rawValue = static_cast<int>(std::roundf(fNum * (1 << _fractionBit)));
+	int64_t	temp = static_cast<int64_t>(fNum);
+	
+	temp = std::roundf(fNum * (1 << _fractionBit));
+	if (temp < std::numeric_limits<int>::min() 
+			|| temp > std::numeric_limits<int>::max())
+		throw std::overflow_error("Constructor with intNum overflow");
+	_rawValue = static_cast<int>(temp);
 }
 
 Fixed::~Fixed()

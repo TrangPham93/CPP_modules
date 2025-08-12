@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 21:39:55 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 22:06:13 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,31 @@ const int Fixed::_fractionBit = 8;
 
 Fixed::Fixed(void): _rawValue{0}
 {
-	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int	intNum)
 {
-	// std::cout << "Int constructor called" << std::endl;
 	_rawValue = intNum * (1 << _fractionBit);
 }
 
 Fixed::Fixed(const float fNum)
 {
-	// std::cout << "Float constructor called" << std::endl;
 	_rawValue = static_cast<int>(std::roundf(fNum * (1 << _fractionBit)));
 }
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& copy)
 {
-	// std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
+/* @attention: checks if the object you are assigning to is different from the object you are assigning from. */
 Fixed& Fixed::operator = (const Fixed& copy)
 {
-	// std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &copy) //checks if the object you are assigning to is different from the object you are assigning from.
+	if (this != &copy) 
 		this->_rawValue = copy.getRawBits();
 	return (*this);
 }
@@ -206,4 +201,32 @@ Fixed	Fixed::operator-- (int)
 	Fixed	old = *this;
 	operator--();
 	return (old);
+}
+
+Fixed&	Fixed::min (Fixed& a, Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+
+const Fixed&	Fixed::min (const Fixed& a, const Fixed& b)
+{
+	if (a < b)
+		return a;
+	return b;
+}
+	
+Fixed&	Fixed::max (Fixed& a, Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;
+}
+
+const Fixed&	Fixed::max (const Fixed& a, const Fixed& b)
+{
+	if (a > b)
+		return a;
+	return b;	
 }

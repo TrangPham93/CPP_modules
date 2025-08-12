@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 20:08:02 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 22:02:48 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,14 @@ public:
 	Fixed	operator++ (int); // postfix increment
 	Fixed&	operator-- (void); // prefix increment
 	Fixed	operator-- (int); // postfix increment
-					
+	
+	// public overloaded member function
+	static Fixed&		min (Fixed& a, Fixed& b);
+	// @note: const at the end isn't relevant, cause static func not depend obj
+	static const Fixed&	min (const Fixed& a, const Fixed& b);
+	static Fixed&	max (Fixed& a, Fixed& b);
+	static const Fixed&	max (const Fixed& a, const Fixed& b);
+
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;

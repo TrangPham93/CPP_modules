@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 20:15:57 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/12 21:39:55 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -175,6 +175,8 @@ Fixed	Fixed::operator/ (const Fixed&other) const
 */
 Fixed&	Fixed::operator++ (void)
 {
+	if (this->_rawValue == std::numeric_limits<int>::max())
+		throw std::overflow_error("Increment overflow");
 	this->_rawValue++;
 	return (*this);
 }
@@ -193,6 +195,15 @@ Fixed	Fixed::operator++ (int)
 
 Fixed&	Fixed::operator-- (void)
 {
+	if (this->_rawValue == std::numeric_limits<int>::min())
+		throw std::overflow_error("Increment overflow");
 	this->_rawValue--;
 	return (*this);
+}
+
+Fixed	Fixed::operator-- (int)
+{
+	Fixed	old = *this;
+	operator--();
+	return (old);
 }

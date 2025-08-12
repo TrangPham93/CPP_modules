@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 22:02:48 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 00:08:37 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # include <iostream>
 # include <cmath>
+# include <climits>
 
 /* 
 	Floating point number representation:
@@ -67,7 +68,8 @@ public:
 	Fixed	operator* (const Fixed& other) const;
 	Fixed	operator/ (const Fixed& other) const;
 	
-	// Increment / decrement operator
+	/* Increment / decrement operator
+		@return: increase or decrease the fixed-point value fromthe smallest representable ϵ = 1 / 256 = 0.00390625 */ 
 	Fixed&	operator++ (void); // prefix increment
 	Fixed	operator++ (int); // postfix increment
 	Fixed&	operator-- (void); // prefix increment

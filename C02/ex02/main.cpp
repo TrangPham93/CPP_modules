@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:34:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 22:43:11 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 00:06:34 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,32 @@ int main( void )
 	std::cout <<"fixed-point number max(a, b): " << Fixed::max( a, b ) 
 		<< std::endl;
 
-	std::cout << "--------------My test---------------------\n" << std::endl;
+	std::cout << "\n--------------My test---------------------\n" << std::endl;
 	
-	int	num = 2147483;
+	int		numInt = 214836;
+	float	numFloat = 362.32f;
 	try
 	{
-		Fixed	d(num);
-		std::cout << "fixed-point number d: " << d << std::endl;
-		std::cout << "d++: " << d++ << std::endl;
-		std::cout << "d * a: " << d * a * a << std::endl;
-		std::cout << "c / 0: " << d / 0 << std::endl;
+		Fixed	objF(numFloat);
+		std::cout << "fixed-point objF	: " << objF << std::endl;
+		std::cout << "objF++		: " << objF++ << std::endl;
+		std::cout << "objF		: " << objF << std::endl;
+		std::cout << "objF		: " << objF << std::endl;
+		std::cout << "objF * a	: " << objF * a << std::endl;
+		// std::cout << "objF / 0	: " << objF / 0 << std::endl;
+		
+		Fixed	objI(numInt);
+		std::cout << "\nfixed-point objI	: " << objI << std::endl;
+		std::cout << "objF > objI	: " << (objF > objI) << std::endl;
+		std::cout << "min		: " << Fixed::min(objF , objI) << std::endl;
+		std::cout << "max		: " << Fixed::max(objF , objI) << std::endl;
+		std::cout << "objF + objI	: " << objF + objI << std::endl;
+		std::cout << "objF * objI	: " << objF * objI << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << "Error: " << e.what() << '\n';
+		return (1);
 	}
 	
 	return 0;

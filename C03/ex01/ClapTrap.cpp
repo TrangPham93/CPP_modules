@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 17:28:46 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 22:19:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,24 @@ unsigned int	ClapTrap::getAttackDamage(void)
 }
 void	ClapTrap::setAttackDamage(int newAttackDamage)
 {
-	if (newAttackDamage < 0 || newAttackDamage > 10)
-		throw std::out_of_range("set AttackDamage is in range [0, 10]");
+	if (newAttackDamage < 0)
+		throw std::out_of_range("set AttackDamage to positive");
 	std::cout << "Set attack damage: " << newAttackDamage << std::endl;
 	_attackDamage = newAttackDamage;
+}
+
+void	ClapTrap::setHitPoint(int	newHitPoint)
+{
+	if (newHitPoint < 0)
+		throw std::out_of_range("set hit point to positive");
+	std::cout << "Set hit point: " << newHitPoint << std::endl;
+	_hitPoint = newHitPoint;
+}
+
+void	ClapTrap::setEnergyPoint(int	newEnergyPoint)
+{
+	if (newEnergyPoint < 0)
+		throw std::out_of_range("set energy point to positive");
+	std::cout << "Set energy point: " << newEnergyPoint << std::endl;
+	_energyPoint = newEnergyPoint;
 }

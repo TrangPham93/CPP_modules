@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:53 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 17:01:51 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 22:15:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ public:
 	std::string 	getName(void);
 	void			setName(std::string newName);
 	unsigned int	getHitPoint(void);
+	void			setHitPoint(int	newHitPoint);
 	unsigned int	getEnergyPoint(void);
+	void			setEnergyPoint(int	newEnergyPoint);
 	unsigned int	getAttackDamage(void);
 	void			setAttackDamage(int newAttackDamage);
 };

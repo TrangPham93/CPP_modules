@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 17:11:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 22:17:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,8 @@ unsigned int	ClapTrap::getAttackDamage(void)
 }
 void	ClapTrap::setAttackDamage(int newAttackDamage)
 {
-	if (newAttackDamage < 0 || newAttackDamage > 10)
-		throw std::out_of_range("set AttackDamage is in range [0, 10]");
+	if (newAttackDamage < 0)
+		throw std::out_of_range("set AttackDamage to positive");
 	std::cout << "Set attack damage: " << newAttackDamage << std::endl;
 	_attackDamage = newAttackDamage;
 }

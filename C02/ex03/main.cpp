@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:34:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 12:41:59 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/13 14:00:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int main( void )
 	Point	a(10, 8.2);
 	Point	b(1, 0.2);
 	Point	c(6.04, 7);
-	Point	p(15, 17);
-
+	// Point	p(15, 17);
+	Point	p(4, 3);
+	
 	try
 	{
 		if (bsp(a, b, c, p))

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:53 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 22:15:49 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/14 15:51:27 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 public:
 	ClapTrap(void);
 	ClapTrap(std::string name);
-	~ClapTrap();
+	virtual ~ClapTrap();
 	ClapTrap(const ClapTrap &other);
 	ClapTrap& operator= (const ClapTrap &other);
 

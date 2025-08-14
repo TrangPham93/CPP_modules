@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/14 14:53:03 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/14 16:00:57 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ public:
 	As a guideline, any time you have a virtual function in a class, 
 	you should immediately add a virtual destructor (even if it does nothing). 
 	This way, you ensure against any surprises later.  */
-	virtual ~ScavTrap();
+	~ScavTrap();
 	ScavTrap(std::string newName);
 
 	
@@ -50,6 +50,7 @@ public:
 	/* polymorphism: in C++, we can do it at both runtime and compile time.
 	For runtime polymorphism, we have to use the virtual functions. */
 
-	// void guardGate();
+	void	attack(const std::string& target);
+	void	guardGate();
 };
 

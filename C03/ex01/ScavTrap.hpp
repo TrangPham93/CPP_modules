@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 22:21:36 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/14 11:42:06 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ private:
 public:
 	/*  constructors and destructors are not inherited by the derived class, but can be called from the base class in the order of inheritance*/
 	ScavTrap(void);
-	~ScavTrap();
+	virtual ~ScavTrap();
 	ScavTrap(std::string newName);
+
+	
 	// ScavTrap(const ScavTrap& other);
 	// ScavTrap& operator= (const ScavTrap& other);
 

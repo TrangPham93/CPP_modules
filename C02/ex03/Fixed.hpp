@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 11:33:36 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/14 12:17:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,11 +77,13 @@ public:
 	static const Fixed&	min (const Fixed& a, const Fixed& b);
 	static Fixed&	max (Fixed& a, Fixed& b);
 	static const Fixed&	max (const Fixed& a, const Fixed& b);
+	Fixed	abs() const;
 
 	int		getRawBits( void ) const;
 	void	setRawBits( int const raw );
 	float	toFloat( void ) const;
 	int		toInt( void ) const;
+	
 };
 
 /* Operator overloading:

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 11:35:49 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/12 22:37:31 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/14 12:17:57 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -241,4 +241,11 @@ const Fixed&	Fixed::max (const Fixed& a, const Fixed& b)
 	if (a > b)
 		return a;
 	return b;	
+}
+
+Fixed Fixed::abs() const
+{
+	if (this->_rawValue < 0)
+		return (Fixed(-this->toFloat()));
+	return (*this);
 }

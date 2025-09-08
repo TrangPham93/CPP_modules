@@ -6,12 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:41 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/14 16:13:15 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/15 17:35:45 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+/* call the ClapTrap before the ScavTrap */
 ScavTrap::ScavTrap(void): ClapTrap()
 {
 	std::cout << "ScavTrap constructor is called" << std::endl;
@@ -33,15 +34,15 @@ ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
 	this->setAttackDamage(20);
 }
 
-// ScavTrap::ScavTrap(const ScavTrap& other)
-// {
+ScavTrap::ScavTrap(const ScavTrap& other)
+{
 	
-// }
+}
 
-// ScavTrap& ScavTrap::operator= (const ScavTrap& other)
-// {
+ScavTrap& ScavTrap::operator= (const ScavTrap& other)
+{
 	
-// }
+}
 
 
 void	ScavTrap::attack(const std::string& target)

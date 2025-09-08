@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/14 16:00:57 by trpham           ###   ########.fr       */
+/*   Updated: 2025/08/15 16:23:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ public:
 	ScavTrap(std::string newName);
 
 	
-	// ScavTrap(const ScavTrap& other);
-	// ScavTrap& operator= (const ScavTrap& other);
+	ScavTrap(const ScavTrap& other);
+	ScavTrap& operator= (const ScavTrap& other);
 
 	/* polymorphism: in C++, we can do it at both runtime and compile time.
 	For runtime polymorphism, we have to use the virtual functions. */

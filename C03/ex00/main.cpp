@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/13 17:12:32 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/09 13:09:30 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 
 	try
 	{
-		clA.setAttackDamage(5);
+		clA.setAttackDamage(7);
 		clB.setAttackDamage(2);
 		std::cout << clA.getName() << " has " << clA.getHitPoint() 
 			<<  " hit points, "	<< clA.getEnergyPoint() 

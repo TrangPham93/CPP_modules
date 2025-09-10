@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:41 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/15 17:35:45 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 11:52:12 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,19 @@ ScavTrap::ScavTrap(std::string newName): ClapTrap(newName)
 	this->setAttackDamage(20);
 }
 
-ScavTrap::ScavTrap(const ScavTrap& other)
+ScavTrap::ScavTrap(const ScavTrap& other): ClapTrap(other)
 {
-	
+	std::cout << "ScavTrap copy constructor is called." << std::endl;
 }
 
 ScavTrap& ScavTrap::operator= (const ScavTrap& other)
 {
-	
+	std::cout << "ScavTrap copy assignment operator is called." << std::endl;
+	if (this != &other)
+	{
+		ClapTrap::operator=(other);
+	}
+	return (*this);
 }
 
 
@@ -64,5 +69,6 @@ void	ScavTrap::attack(const std::string& target)
 
 void ScavTrap::guardGate(void)
 {
-	std::cout << "ScavTrap " << this->getName() << " in Gate keeper mode" << std::endl;
+	std::cout << "ScavTrap " << this->getName() 
+		<< " is now in Gate keeper mode" << std::endl;
 }

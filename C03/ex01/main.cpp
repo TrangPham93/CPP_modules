@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/08/15 15:46:17 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 12:00:55 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,29 @@
 
 int	main(void)
 {
-	// ClapTrap	clap("clap");
 	ScavTrap	scT("scav");
-
+	ScavTrap	scT2;
+	
+	scT2.setName("newScav");
 	try
 	{
-		// clap.setAttackDamage(2);
-		// std::cout << clap.getName() << " has " << clap.getHitPoint() 
-		// 	<< " hit points, "
-		// 	<< clap.getEnergyPoint() << " energy points and attack damage is "
-		// 	<< clap.getAttackDamage() << std::endl;
 		std::cout << scT.getName() << " has " << scT.getHitPoint() 
 			<< " hit points, "
 			<< scT.getEnergyPoint() << " energy points and attack damage is "
 			<< scT.getAttackDamage() << std::endl;
-		std::cout << "\n------------battle--------------\n" << std::endl;	
-		// scT.attack(clap.getName());
-		// clap.takeDamage(scT.getAttackDamage());
-		// clap.attack(scT.getName());
-		// scT.takeDamage(clap.getAttackDamage());
+		std::cout << scT2.getName() << " has " << scT2.getHitPoint() 
+			<< " hit points, "
+			<< scT2.getEnergyPoint() << " energy points and attack damage is "
+			<< scT2.getAttackDamage() << std::endl;
+			
+		std::cout << "\n------------battle--------------\n" << std::endl;
+		
+		scT.attack(scT2.getName());
+		scT2.takeDamage(scT.getAttackDamage());
+		scT2.attack(scT.getName());
+		scT.takeDamage(scT2.getAttackDamage());
+		scT2.attack(scT.getName());
+		scT.takeDamage(scT2.getAttackDamage());
 		scT.guardGate();
 	}
 	catch(const std::exception& e)
@@ -44,6 +48,8 @@ int	main(void)
 	std::cout << scT.getName() << " has " << scT.getHitPoint() 
 		<< " hit points, "
 		<< scT.getEnergyPoint() << " energy points" << std::endl;
-
+	std::cout << scT2.getName() << " has " << scT2.getHitPoint() 
+		<< " hit points, "
+		<< scT2.getEnergyPoint() << " energy points" << std::endl;
 	return (0);
 }

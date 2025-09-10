@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/31 11:32:17 by trpham            #+#    #+#              #
-#    Updated: 2025/08/14 16:04:31 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/10 12:04:07 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp ClapTrap.cpp ScavTrap.cpp
-HEADERS		= ClapTrap.hpp ScavTrap.hpp
+SOURCES		= main.cpp ClapTrap.cpp ScavTrap.cpp FlapTrap.cpp
+HEADERS		= ClapTrap.hpp ScavTrap.hpp FlapTrap.hpp
 
 # Executables
-NAME		= scavTrap
+NAME		= flapTrap
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./scavTrap"
+	@echo "Usage: ./flapTrap"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

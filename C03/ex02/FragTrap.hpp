@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FlapTrap.hpp                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:16:32 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 13:29:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 17:40:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
 #include "ClapTrap.hpp"
 
-class FlapTrap : public ClapTrap
+class FragTrap : public ClapTrap
 {
 private:
 	
 public:
-	FlapTrap(void);
-	FlapTrap(std::string name);
-	~FlapTrap();
-	FlapTrap(const FlapTrap& other);
-	FlapTrap& operator= (const FlapTrap& other);
+	FragTrap(void);
+	FragTrap(std::string name);
+	~FragTrap();
+	FragTrap(const FragTrap& other);
+	FragTrap& operator= (const FragTrap& other);
 
 	void highFivesGuys(void);
 };

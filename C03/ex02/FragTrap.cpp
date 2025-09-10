@@ -1,52 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FlapTrap.cpp                                       :+:      :+:    :+:   */
+/*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/14 16:16:21 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 13:35:32 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 17:41:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FlapTrap.hpp"
+#include "FragTrap.hpp"
 
-FlapTrap::FlapTrap(void) : ClapTrap()
+FragTrap::FragTrap(void) : ClapTrap()
 {
-	std::cout << "FlapTrap constructor is called" << std::endl;
+	std::cout << "FragTrap constructor is called" << std::endl;
 	this->setHitPoint(100);
 	this->setEnergyPoint(100);
 	this->setAttackDamage(30);
 }
 
-FlapTrap::FlapTrap(std::string name) : ClapTrap(name)
+FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FlapTrap parameterized constructor is called" << std::endl;
+	std::cout << "FragTrap parameterized constructor is called" << std::endl;
 	this->setHitPoint(100);
 	this->setEnergyPoint(100);
 	this->setAttackDamage(30);
 }
 
-FlapTrap::~FlapTrap(void)
+FragTrap::~FragTrap(void)
 {
-	std::cout << "FlapTrap destructor is called" << std::endl;
+	std::cout << "FragTrap destructor is called" << std::endl;
 }
 
-FlapTrap::FlapTrap(const FlapTrap& other) : ClapTrap(other)
+FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other)
 {
-	std::cout << "FlapTrap copy constructor is called" << std::endl;
+	std::cout << "FragTrap copy constructor is called" << std::endl;
 }
 
-FlapTrap& FlapTrap::operator= (const FlapTrap& other)
+FragTrap& FragTrap::operator= (const FragTrap& other)
 {
-	std::cout << "FlapTrap copy assignment operator is called" << std::endl;
+	std::cout << "FragTrap copy assignment operator is called" << std::endl;
 	if (this != &other)
 		ClapTrap::operator=(other);
 	return (*this);
 }
 
-void FlapTrap::highFivesGuys(void)
+void FragTrap::highFivesGuys(void)
 {
 	std::cout << "Let's high five guys" << std::endl;
 }

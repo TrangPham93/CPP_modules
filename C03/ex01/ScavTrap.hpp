@@ -6,13 +6,12 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 11:47:17 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 17:39:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
 #include "ClapTrap.hpp"
 
 /* 3 modes of inheritance:

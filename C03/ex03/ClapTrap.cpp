@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 11:52:28 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 21:09:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ ClapTrap::ClapTrap(std::string name): _name {name}
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
+	std::cout << "Claptrap Copy constructor is called." << std::endl;
 	this->_name = other._name;
 	this->_hitPoint = other._hitPoint;
 	this->_energyPoint = other._energyPoint;
 	this->_attackDamage = other._attackDamage;
-	std::cout << "Claptrap Copy constructor is called." << std::endl;
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap &other)
@@ -112,7 +112,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
-std::string ClapTrap::getName(void)
+std::string ClapTrap::getName(void) const
 {
 	return _name;
 }
@@ -122,15 +122,15 @@ void ClapTrap::setName(std::string newName)
 	std::cout << "Set name: " << newName << std::endl;
 	_name = newName;
 }
-unsigned int	ClapTrap::getHitPoint(void)
+unsigned int	ClapTrap::getHitPoint(void) const
 {
 	return _hitPoint;
 }
-unsigned int	ClapTrap::getEnergyPoint(void)
+unsigned int	ClapTrap::getEnergyPoint(void) const
 {
 	return _energyPoint;
 }
-unsigned int	ClapTrap::getAttackDamage(void)
+unsigned int	ClapTrap::getAttackDamage(void) const
 {
 	return _attackDamage;
 }

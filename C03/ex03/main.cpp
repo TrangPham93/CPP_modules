@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 19:18:25 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 20:50:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	main(void)
 {
-	DiamondTrap	dmond("newDiamond");
+	DiamondTrap	newDmond("newDiamond");
+	DiamondTrap	dmond(newDmond);
 
 	try
 	{
 		std::cout << dmond.getDiamondName() << " has " << dmond.getHitPoint() 
 			<< " hit points, "
-			<< dmond.getEnergyPoint() << " energy points" << std::endl;
+			<< dmond.getEnergyPoint() << " energy points with attackDamage " 
+			<< dmond.getAttackDamage() << std::endl;
 		dmond.attack("newTarget");
 		dmond.whoAmI();
 	}

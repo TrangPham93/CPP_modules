@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 17:00:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 19:18:04 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 21:01:42 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,31 @@ DiamondTrap::DiamondTrap(std::string newName) :
 DiamondTrap::~DiamondTrap()
 {
 	std::cout << "DiamondTrap destructor is called" << std::endl;
+}
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other)
+	: ClapTrap(other), ScavTrap(other), FragTrap(other)
+{
+	std::cout << "DiamondTrap copy constructor is called" << std::endl;
+	this->_name = other._name;
+	this->setHitPoint(other.getHitPoint());
+	this->setEnergyPoint(other.getEnergyPoint());
+	this->setAttackDamage(other.getAttackDamage());
+}
+
+DiamondTrap&	DiamondTrap::operator= (const DiamondTrap& other)
+{
+	if (this != &other)
+	{
+		ClapTrap::operator=(other);
+		ScavTrap::operator=(other);
+		FragTrap::operator=(other);
+		_name = other._name;
+		this->setHitPoint(other.getHitPoint());
+		this->setEnergyPoint(other.getEnergyPoint());
+		this->setAttackDamage(other.getAttackDamage());
+	}
+	return *this;
 }
 
 std::string	DiamondTrap::getDiamondName()

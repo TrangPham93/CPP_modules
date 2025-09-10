@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:53 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 11:46:47 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/10 21:03:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,13 @@ public:
 	void			takeDamage(unsigned int amount);
 	void			beRepaired(unsigned int amount);
 
-	std::string 	getName(void);
+	std::string 	getName(void) const;
 	void			setName(std::string newName);
-	unsigned int	getHitPoint(void);
+	unsigned int	getHitPoint(void) const;
 	void			setHitPoint(int	newHitPoint);
-	unsigned int	getEnergyPoint(void);
+	unsigned int	getEnergyPoint(void) const;
 	void			setEnergyPoint(int	newEnergyPoint);
-	unsigned int	getAttackDamage(void);
+	unsigned int	getAttackDamage(void) const;
 	void			setAttackDamage(int newAttackDamage);
 };
 

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 21:08:21 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/11 21:22:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	delete j;//should not create a leak
+	delete j;
 	delete i;
 	
 	std::cout << "\n------deep copy DOG testing---------------\n\n";

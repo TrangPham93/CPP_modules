@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 20:51:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/11 21:08:21 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,30 @@ int main()
 	cat1.makeSound();
 	
 	Cat	cat2 = cat1;
+	cat1.setBrain("new meao");
 	std::cout << "cat1 brain: " <<std::endl;
 	cat1.getBrain();
 	std::cout << "deep copy of cat1 brain: " << std::endl;
 	cat2.getBrain();
+
+	std::cout << "\n------ ANIMAL testing---------------\n\n";
 	
+	int	amount = 20;
+	Animal* herd[amount];
 	
+	for (int i = 0; i < amount; i++)
+	{
+		if (i < amount/2)
+			herd[i] = new Dog();
+		else
+			herd[i] = new Cat();	
+	}
 	
+	for (int i = 0; i < amount; i++)
+		herd[i]->makeSound();
+		
+	for (int i = 0; i < amount; i++)
+		delete herd[i];
+		
 	return 0;
 }

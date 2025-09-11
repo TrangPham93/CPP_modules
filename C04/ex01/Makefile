@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/11 14:18:12 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/11 15:33:29 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,9 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
-HEADERS		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp
+SOURCES		= main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp \
+			Brain.cpp
+HEADERS		= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
 
 # Executables
 NAME		= animal

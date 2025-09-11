@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:29:22 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 13:55:25 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/11 15:00:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,6 @@ Animal::Animal()
 Animal::~Animal()
 {
 	std::cout << "Animal class: destructor is called" << std::endl;
-}
-
-Animal::Animal(std::string type)
-{
-	std::cout << "Animal class: parameterized constructor is called" 
-		<< std::endl;
-	type = type;
 }
 
 Animal::Animal(const Animal& other)

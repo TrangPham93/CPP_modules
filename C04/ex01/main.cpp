@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 14:24:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/11 20:51:34 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,42 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-/* If you are using a pointer to an object, use -> to access its members. 
-	(*meta).makeSound() == meta->makeSound */
 int main()
 {
-	const Animal* meta = new Animal();
+	std::cout << "\n------default testing---------------\n\n";
+
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
-	delete meta;
-	delete j;
+	delete j;//should not create a leak
 	delete i;
+	
+	std::cout << "\n------deep copy DOG testing---------------\n\n";
+	
+	Dog	dog1;
+	dog1.setBrain("hello");
+	dog1.setBrain("no");
+	dog1.makeSound();
+	
+	Dog	dog2 = dog1;
+	std::cout << "dog1 brain: " <<std::endl;
+	dog1.getBrain();
+	std::cout << "deep copy of dog1 brain: " << std::endl;
+	dog2.getBrain();
 
-	std::cout << "\n----------test-wrong-cat--------------\n" << std::endl;
+	std::cout << "\n------deep copy CAT testing---------------\n\n";
 	
-	const WrongAnimal* wAnimal = new WrongAnimal();
-	const WrongAnimal* wCat = new WrongCat();
+	Cat	cat1;
+	cat1.setBrain("meo");
+	cat1.setBrain("meow");
+	cat1.makeSound();
 	
-	std::cout << wAnimal->getType() << " " << std::endl;
-	std::cout << wCat->getType() << " " << std::endl;
-	wCat->makeSound(); //will output the animal sound!
-	wAnimal->makeSound();
-	delete wCat;
-	delete wAnimal;
+	Cat	cat2 = cat1;
+	std::cout << "cat1 brain: " <<std::endl;
+	cat1.getBrain();
+	std::cout << "deep copy of cat1 brain: " << std::endl;
+	cat2.getBrain();
+	
+	
 	
 	return 0;
 }

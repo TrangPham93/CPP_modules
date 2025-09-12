@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:25:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 16:06:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 16:12:07 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,28 @@ Character::Character(const Character& other)
 	std::cout << "Character: copy constructor called" << std::endl;
 	this->_name = other._name;
 	for (int i = 0; i < 4; i++)
+	{
+		delete this->_inventory[i];
 		this->_inventory[i] = (other._inventory[i]);
+	}
 }
 Character& Character::operator= (const Character& other)
 {
 	std::cout << "Character: copy assignment operator called" << std::endl;
 	if (this != &other)
-		this = new Character(other);
-	
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			delete this->_inventory[i];
+			this->_inventory[i] = other._inventory[i];
+		}
+	}
+	return (*this);
 }
 
 std::string const & Character::getName() const
 {
-	
+	return _name;
 }
 
 void Character::equip(AMateria* m)

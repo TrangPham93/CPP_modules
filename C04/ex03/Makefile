@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/12 13:21:24 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/12 16:22:47 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,12 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp AMateria.cpp ICharacter.cpp Cure.cpp Ice.cpp
-HEADERS		= AMateria.hpp ICharacter.hpp Cure.hpp Ice.hpp
+SOURCES		= main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp \
+			MateriaSource.cpp
 
-# Executables
+HEADERS		= AMateria.hpp Character.hpp ICharacter.hpp Cure.hpp Ice.hpp \
+			IMateriaSource.hpp MateriaSource.hpp
+
 NAME		= materias
 
 # Object files

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:20:11 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 14:57:05 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 15:05:38 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,9 @@ Cure& Cure::operator= (const Cure& other)
 Cure* Cure::clone() const
 {
 	return new Cure(*this);
+}
+
+void Cure::use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "’s wounds *" << std::endl;
 }

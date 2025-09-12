@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:18:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 14:40:56 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 15:01:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ public:
 	Ice& operator= (const Ice& other);
 	
 	Ice* clone() const;
+	void use(ICharacter& target);
 };
 

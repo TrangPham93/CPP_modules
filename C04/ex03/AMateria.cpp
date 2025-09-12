@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:48:26 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 13:18:30 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 15:01:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,6 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-	// 
+	(void)target;
+	std::cout << "AMateria: no use function implementation" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:26:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 14:33:20 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/11 15:00:59 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ class Animal
 	public:
 		Animal();
 		virtual ~Animal();
-		Animal(std::string type);
 		Animal(const Animal& other);
 		Animal& operator= (const Animal& other);
 		

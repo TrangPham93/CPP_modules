@@ -6,15 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 21:22:29 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 12:18:04 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 
 int main()
 {

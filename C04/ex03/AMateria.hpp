@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:47:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 13:16:39 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/12 14:38:30 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class AMateria
 		std::string type;
 	public:
 		AMateria();
-		~AMateria();
+		virtual ~AMateria();
 		AMateria(std::string const & type);
 		AMateria(const AMateria& other);
 		AMateria& operator= (const AMateria& other);

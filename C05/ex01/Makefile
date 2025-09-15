@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/15 16:07:47 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/15 17:21:39 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Bureaucrat.cpp
-HEADERS		= Bureaucrat.hpp
+SOURCES		= main.cpp Bureaucrat.cpp Form.cpp
+HEADERS		= Bureaucrat.hpp Form.hpp
 
 # Executables
 NAME		= bureaucrat

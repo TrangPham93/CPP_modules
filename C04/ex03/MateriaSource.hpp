@@ -6,22 +6,23 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 16:13:59 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/13 11:32:00 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 13:06:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "IMateriaSource.hpp"
 
-class MateriaSource : public IMateriaSource, public AMateria
+class MateriaSource : public IMateriaSource
 {
 private:
-	AMateria* 
+	AMateria*	_inventoryM[4];
+	
 public:
 	MateriaSource();
 	~MateriaSource();
-	// MateriaSource(const MateriaSource& other);
-	// MateriaSource& operator= (const MateriaSource& other);
+	MateriaSource(const MateriaSource& other);
+	MateriaSource& operator= (const MateriaSource& other);
 
 	void 		learnMateria(AMateria* m);
 	AMateria*	createMateria(std::string const & type);

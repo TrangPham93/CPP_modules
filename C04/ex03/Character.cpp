@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:25:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 11:45:00 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 13:14:24 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void Character::equip(AMateria* m)
 		return;
 	for (int i = 0; i < 4; i++)
 	{
-		if (_inventory[i] = nullptr)
+		if (_inventory[i] == nullptr)
 		{
 			_inventory[i] = m;
 			return;
@@ -97,5 +97,5 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	(*_inventory)[idx].use(target);
+	_inventory[idx]->use(target);
 }

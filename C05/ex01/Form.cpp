@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 19:33:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 19:36:18 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ const char* Form::GradeTooLowException::what() const throw()
 	
 void	Form::beSigned(Bureaucrat& b)
 {
+	std::cout << "Preprare to sign!!" << std::endl;
 	if (b.getGrade() < 1)
 		throw Form::GradeTooHighException();
 	else if (b.getGrade() > 150)

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 19:29:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 19:55:15 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ int	main()
 		Jim.incrementGrade();		
 		std::cout << Jim << std::endl;
 		
-		Form	pass25("entrance exam", 165, 12);
+		Form	pass25("entrance exam", 25, 12);
+		std::cout << pass25 << std::endl;
+
+		pass25.beSigned(Jim);
 		std::cout << pass25 << std::endl;
 	}
 	catch(std::exception& e)
@@ -36,6 +39,25 @@ int	main()
 		std::cout << e.what() << std::endl;		
 	}
 	
+	std::cout << "\n----------test-2---------\n" << std::endl;
+	try
+	{
+		Bureaucrat	Jim("Jim", 28);
+		
+		std::cout << Jim << std::endl;
+		Jim.incrementGrade();		
+		std::cout << Jim << std::endl;
+		
+		Form	pass25("entrance exam", 25, 12);
+		std::cout << pass25 << std::endl;
+
+		Jim.signForm(pass25);
+		std::cout << pass25 << std::endl;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;		
+	}
 	
 	return 0;
 }

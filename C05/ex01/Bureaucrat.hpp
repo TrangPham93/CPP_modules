@@ -6,12 +6,15 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:18:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 19:23:27 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 19:54:24 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -42,6 +45,7 @@ public:
 	int				getGrade() const;
 	void			incrementGrade();
 	void			decrementGrade();
+	void			signForm(Form& formToSign);
 };
 
 std::ostream& operator << (std::ostream &out, const Bureaucrat& obj);

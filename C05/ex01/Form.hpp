@@ -6,13 +6,15 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 19:23:18 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 19:54:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {

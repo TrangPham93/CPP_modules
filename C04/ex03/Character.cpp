@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:25:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 16:12:07 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 11:45:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,28 @@ Character::Character(const Character& other)
 	this->_name = other._name;
 	for (int i = 0; i < 4; i++)
 	{
-		delete this->_inventory[i];
-		this->_inventory[i] = (other._inventory[i]);
+		if (other._inventory[i])
+			this->_inventory[i] = other._inventory[i]->clone();
+		else
+			this->_inventory[i] = nullptr;
 	}
 }
+
 Character& Character::operator= (const Character& other)
 {
 	std::cout << "Character: copy assignment operator called" << std::endl;
 	if (this != &other)
 	{
+		_name = other._name;
 		for (int i = 0; i < 4; i++)
 		{
 			delete this->_inventory[i];
-			this->_inventory[i] = other._inventory[i];
+			this->_inventory[i] = nullptr;
+		}
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->_inventory[i])
+				this->_inventory[i] = other._inventory[i]->clone();
 		}
 	}
 	return (*this);
@@ -65,26 +74,23 @@ std::string const & Character::getName() const
 
 void Character::equip(AMateria* m)
 {
-	
+	if (!m)
+		return;
 	for (int i = 0; i < 4; i++)
 	{
-		if ((*_inventory)[i].getType().empty())
+		if (_inventory[i] = nullptr)
 		{
-			(*_inventory)[i] = *m;
-			break;
-		}
-		if (i == 4)
-		{
-			std::cout << "full inventory" << std::endl;
-			break;
+			_inventory[i] = m;
+			return;
 		}
 	}
+	std::cout << "Inventory is full" << std::endl;
 }
 void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	// what does it do?
+	_inventory[idx] = nullptr;
 }
 
 void Character::use(int idx, ICharacter& target)

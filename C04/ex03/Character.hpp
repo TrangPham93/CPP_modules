@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:24:01 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 16:00:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/15 11:28:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 class Character : public ICharacter
 {
 	private:
-		std::string	_name;
-		AMateria*	_inventory[4];
+		std::string		_name;
+		AMateria*		_inventory[4];
 		
 	public:
 		Character();

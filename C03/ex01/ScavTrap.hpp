@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 17:14:44 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 21:12:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/16 12:03:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@
 	directly accessed.*/ 
 class ScavTrap : public ClapTrap
 {
-private:
-	
 
 public:
 	/*  constructors and destructors are not inherited by the derived class, 
@@ -39,7 +37,6 @@ public:
 	For runtime polymorphism, we have to use the virtual functions. */
 	~ScavTrap();
 	ScavTrap(std::string newName);
-
 	ScavTrap(const ScavTrap& other);
 	ScavTrap& operator= (const ScavTrap& other);
 

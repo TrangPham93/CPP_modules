@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 14:05:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/10 17:42:50 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/16 12:07:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ int	main(void)
 	ScavTrap	scT("scav");
 	FragTrap	frag("frag");
 	
-	clap.setAttackDamage(5);
 	
 	try
 	{
+		clap.setAttackDamage(5);
 		std::cout << clap.getName() << " has " << clap.getHitPoint() 
 			<< " hit points, "
 			<< clap.getEnergyPoint() << " energy points and attack damage is "

@@ -6,12 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:23:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 12:56:06 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/16 13:12:50 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
 
 Bureaucrat::Bureaucrat() : _name("unknown"), _grade(150)
 {
@@ -98,7 +97,7 @@ std::ostream& operator << (std::ostream &out, const Bureaucrat& obj)
 	return out;
 }
 
-void	Bureaucrat::signForm(Form& formToSign)
+void	Bureaucrat::signForm(AForm& formToSign)
 {
 	try
 	{

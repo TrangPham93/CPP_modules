@@ -1,100 +1,100 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 12:52:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/16 13:11:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() 
+AForm::AForm() 
 	: _formName("unknown"), _isSign(false), _signGrade(1), _executeGrade(1)
 {
 	std::cout << "Form: constructor called" << std::endl;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << "Form: destructor called" << std::endl;
 }
 
-Form::Form(std::string name, int signGrade, int executeGrade) :_formName(name),
+AForm::AForm(std::string name, int signGrade, int executeGrade) :_formName(name),
 	_isSign(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	std::cout << "Form: para_constructor called" << std::endl;
 	if (signGrade < 1 || executeGrade < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (signGrade > 150 || executeGrade > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 }
 
-Form::Form(const Form& other): _formName(other._formName), 
+AForm::AForm(const AForm& other): _formName(other._formName), 
 	_isSign(other._signGrade), _signGrade(other._signGrade),
 	_executeGrade(other._executeGrade)
 {
 	std::cout << "Form: copy constructor called" << std::endl;
 	if (other._signGrade < 1 || other._executeGrade < 1)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	else if (other._signGrade > 150 || other._executeGrade > 150)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 }
 
-Form& Form::operator=(const Form& other)
+AForm& AForm::operator=(const AForm& other)
 {
 	if (this != &other)
 		_isSign = other._isSign;
 	return (*this);
 }
 
-const char* Form::GradeTooHighException::what() const throw()
+const char* AForm::GradeTooHighException::what() const throw()
 {
 	return "Exception: Form's grade is too high";
 }
 
-const char* Form::GradeTooLowException::what() const throw()
+const char* AForm::GradeTooLowException::what() const throw()
 {
 	return "Exception: Form's grade is too low";
 }
 
 	
-void	Form::beSigned(Bureaucrat& b)
+void	AForm::beSigned(Bureaucrat& b)
 {
 	std::cout << "Preprare to sign!!" << std::endl;
 	if (b.getGrade() < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	else if (b.getGrade() > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	if (b.getGrade() > _signGrade)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	_isSign = true;	
 }
 
-std::string Form::getFormName() const
+std::string AForm::getFormName() const
 {
 	return _formName;
 }
 
-bool	Form::getSignStatus() const
+bool	AForm::getSignStatus() const
 {
 	return _isSign;
 }
 
-int	Form::getSignGrade() const
+int	AForm::getSignGrade() const
 {
 	return _signGrade;
 }
 
-int			Form::getExecuteGrade() const
+int	AForm::getExecuteGrade() const
 {
 	return _executeGrade;	
 }
 
-std::ostream& operator << (std::ostream& out, Form& obj)
+std::ostream& operator << (std::ostream& out, AForm& obj)
 {
 	out << "Form " << obj.getFormName() << ", has sign grade of " 
 		<< obj.getSignGrade() << " and execute grade of " 

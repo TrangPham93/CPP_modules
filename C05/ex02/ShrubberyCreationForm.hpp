@@ -6,13 +6,14 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:37 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:20:06 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 22:45:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <fstream>
 #include "AForm.hpp"
 
 // class AForm;

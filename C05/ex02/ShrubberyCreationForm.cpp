@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:14:11 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 22:58:50 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,29 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 	return (*this);
 }
 
+void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+{
+	if (!this->getSignStatus())
+		throw ShrubberyCreationForm::FormNotSigned();
+	else if (executor.getGrade() > this->getExecuteGrade())
+		throw Bureaucrat::GradeTooLowException();
+	
+	std::ofstream shrubFile;
+	shrubFile.open(_target + "_shrubbery");
+
+	if (!shrubFile.is_open())
+		throw "Error in creating file";
+	shrubFile << "       ccee88oo\n"
+             "    C8O8O8Q8PoOb o8oo\n"
+             " dOB69QO8PdUOpugoO9bD\n"
+             "CgggbU8OU qOp qOdoUOdcb\n"
+             "    6OuU  /p u gcoUodpP\n"
+             "       \\\\\\//  /douUP\n"
+             "         \\\\\\////\n"
+             "          |||/\\\n"
+             "          |||\\/\n"
+             "          |||||\n"
+             "    .....//||||\\\\....\n" << std::endl;
+	shrubFile.close();	
+}
 

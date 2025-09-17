@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:18:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 22:38:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ public:
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+	
+	class FormNotSigned : public std::exception
 	{
 		virtual const char* what() const throw();
 	};

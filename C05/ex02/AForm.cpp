@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:04:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 22:39:54 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,11 @@ const char* AForm::GradeTooLowException::what() const throw()
 	return "Exception: Form's grade is too low";
 }
 
-	
+const char* AForm::FormNotSigned::what() const throw()
+{
+	return "Exception: Form is not signed yet";
+}
+
 void	AForm::beSigned(Bureaucrat& b)
 {
 	std::cout << "Preprare to sign!!" << std::endl;

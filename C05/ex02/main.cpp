@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:05:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 22:59:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,16 @@ int	main()
 	std::cout << "\n----------test-1---------\n" << std::endl;
 	try
 	{
-		AForm*	newForm = new ShrubberyCreationForm();
+		AForm*		newForm = new ShrubberyCreationForm("home");
+		Bureaucrat	Jim("Jim", 2);
+		
 		std::cout << newForm->getFormName() << ": sign grade of " 
 			<< newForm->getSignGrade() << ", execute grade of " 
 			<< newForm->getExecuteGrade() << ", signed == " 
 			<< newForm->getSignStatus() << std::endl;
+		newForm->beSigned(Jim);
+		newForm->execute(Jim);
+			
 		delete newForm;
 	}
 	catch(std::exception& e)

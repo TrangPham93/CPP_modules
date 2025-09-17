@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:23:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 13:12:50 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 21:39:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Bureaucrat: destructor called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int newGrade): _name(name)
+Bureaucrat::Bureaucrat(std::string name, unsigned int newGrade): _name(name)
 {
 	std::cout << "Bureaucrat: para_constructor called" << std::endl;
 	if (newGrade < 1)
@@ -60,7 +60,7 @@ std::string		Bureaucrat::getName() const
 	return _name;	
 }
 
-int		Bureaucrat::getGrade() const
+unsigned int		Bureaucrat::getGrade() const
 {
 	return _grade;
 }

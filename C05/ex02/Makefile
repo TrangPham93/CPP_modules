@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/16 13:00:45 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/17 20:30:06 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Bureaucrat.cpp AForm.cpp
-HEADERS		= Bureaucrat.hpp AForm.hpp
+SOURCES		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+HEADERS		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp
 
 # Executables
-NAME		= bureaucrat
+NAME		= form
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./bureaucrat"
+	@echo "Usage: ./form"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

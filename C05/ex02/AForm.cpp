@@ -6,25 +6,25 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 13:11:09 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 20:23:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() 
-	: _formName("unknown"), _isSign(false), _signGrade(1), _executeGrade(1)
-{
-	std::cout << "Form: constructor called" << std::endl;
-}
+// AForm::AForm() 
+// 	: _formName("unknown"), _isSign(false), _signGrade(1), _executeGrade(1)
+// {
+// 	std::cout << "Form: constructor called" << std::endl;
+// }
 
 AForm::~AForm()
 {
 	std::cout << "Form: destructor called" << std::endl;
 }
 
-AForm::AForm(std::string name, int signGrade, int executeGrade) :_formName(name),
-	_isSign(false), _signGrade(signGrade), _executeGrade(executeGrade)
+AForm::AForm(std::string name, int signGrade, int executeGrade) 
+	:_formName(name), _isSign(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	std::cout << "Form: para_constructor called" << std::endl;
 	if (signGrade < 1 || executeGrade < 1)
@@ -34,7 +34,7 @@ AForm::AForm(std::string name, int signGrade, int executeGrade) :_formName(name)
 }
 
 AForm::AForm(const AForm& other): _formName(other._formName), 
-	_isSign(other._signGrade), _signGrade(other._signGrade),
+	_isSign(other._isSign), _signGrade(other._signGrade),
 	_executeGrade(other._executeGrade)
 {
 	std::cout << "Form: copy constructor called" << std::endl;

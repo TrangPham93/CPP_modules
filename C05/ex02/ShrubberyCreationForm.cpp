@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 15:46:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 20:29:23 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,21 @@
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("ShrubberyCreationForm", 145, 137) 
 {
 	std::cout << "Shrubbery Form: constructor called" << std::endl;
-	
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 	std::cout << "Shrubbery Form: destructor called" << std::endl;
+}
+
+void	ShrubberyCreationForm::beSigned(Bureaucrat& b)
+{
+	std::cout << "Preprare to sign!!" << std::endl;
+	if (b.getGrade() < 1)
+		throw AForm::GradeTooHighException();
+	else if (b.getGrade() > 150)
+		throw AForm::GradeTooLowException();
+	if (b.getGrade() > _signGrade)
+		throw AForm::GradeTooLowException();
+	_isSign = true;	
 }

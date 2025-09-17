@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:37 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 15:47:49 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 20:28:40 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ private:
 public:
 	ShrubberyCreationForm();
 	~ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string& target);
+	// ShrubberyCreationForm(const std::string& target);
 
-
-	virtual void	beSigned(Bureaucrat& b); //virtual?
+	void	beSigned(Bureaucrat& b) override;
 	
 	
 };

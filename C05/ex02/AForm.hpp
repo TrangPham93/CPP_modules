@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 13:23:00 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 20:29:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ class Bureaucrat;
 
 class AForm
 {
-private:
+protected:
 	const std::string	_formName;
 	bool				_isSign;
 	const int			_signGrade;
 	const int			_executeGrade;
 
 public:
-	AForm();
+	AForm() = delete; //no default constructor, always initialize properly
 	virtual ~AForm();
 	AForm(std::string name, int signGrade, int executeGrade);
 	AForm(const AForm& other);

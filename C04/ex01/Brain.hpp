@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:48:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 11:59:55 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 12:38:19 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 class Brain
 {
-protected:
+private:
 	std::string ideas[100];
 	
 public:

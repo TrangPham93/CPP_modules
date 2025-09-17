@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:26:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 12:33:27 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 13:27:54 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 A class becomes abstract if it has at least one pure virtual function. */
 class Animal
 {
-	private:
 
 	/* Protected access modifier is similar to that of private access
 	modifiers, the difference is that the class member declared as Protected
@@ -39,7 +38,8 @@ class Animal
 		that actual obj is Cat and use the pointer type.
 			Virtual will indicate that the function may be overriden, dynamic
 		dispatch will decide at runtime the version of function to be used
-		A pure virtual function is a function declared in a base class that must be overridden in any derived class.
+			A pure virtual function is a function declared in a base class that 
+		must be overridden in any derived class.
 		The = 0 means “no default implementation”.
 		It forces derived classes to implement the function */
 		virtual void	makeSound() const = 0;

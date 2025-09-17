@@ -6,11 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:24:01 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 11:28:29 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 11:03:29 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 #include "ICharacter.hpp"
 
 class Character : public ICharacter

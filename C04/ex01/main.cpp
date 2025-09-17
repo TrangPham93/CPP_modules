@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 12:35:23 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 13:36:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,28 @@ int main()
 	for (int i = 0; i < amount; i++)
 	{
 		if (i < amount/2)
+		{
+			std::cout << "[" << i << "]" << std::endl;
 			herd[i] = new Dog();
+		}
 		else
+		{
+			std::cout << "[" << i << "]" << std::endl;
 			herd[i] = new Cat();	
+		}
 	}
 	
 	for (int i = 0; i < amount; i++)
+	{
+		std::cout << "[" << i << "] ";
 		herd[i]->makeSound();
+	}
 		
 	for (int i = 0; i < amount; i++)
+	{
+		std::cout << "[" << i << "]" << std::endl;
 		delete herd[i];
+	}
 		
 	return 0;
 }

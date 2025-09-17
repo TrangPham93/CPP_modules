@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:29:22 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 12:36:45 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 11:22:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,24 @@
 
 Animal::Animal()
 {
-	std::cout << "Animal class: constructor is called" << std::endl;
+	std::cout << "Animal: constructor is called" << std::endl;
 	type = "None";
 }
 
 Animal::~Animal()
 {
-	std::cout << "Animal class: destructor is called" << std::endl;
+	std::cout << "Animal: destructor is called" << std::endl;
 }
 
 Animal::Animal(const Animal& other)
 {
-	std::cout << "Animal class: copy constructor is called" << std::endl;
-	type = other.type;
+	std::cout << "Animal: copy constructor is called" << std::endl;
+	this->type = other.type;
 }
 
 Animal& Animal::operator= (const Animal& other)
 {
-	std::cout << "Animal class: copy assignment operator is called" 
+	std::cout << "Animal: copy assignment operator is called" 
 		<< std::endl;
 	if (this != &other)
 		this->type = other.type;

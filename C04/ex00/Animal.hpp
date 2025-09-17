@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:26:24 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 15:00:59 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 11:43:24 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 
 class Animal
 {
-	private:
-
 	/* Protected access modifier is similar to that of private access
 	modifiers, the difference is that the class member declared as Protected
 	are inaccessible outside the class but they can be accessed by any 
@@ -27,6 +25,9 @@ class Animal
 		
 	public:
 		Animal();
+		/* A useful guideline is that the destructor of any base class must be 
+		public and virtual or protected and non-virtual, whenever delete 
+		expressions are involved */
 		virtual ~Animal();
 		Animal(const Animal& other);
 		Animal& operator= (const Animal& other);

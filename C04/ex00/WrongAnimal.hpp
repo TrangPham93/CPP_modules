@@ -6,16 +6,16 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 14:10:33 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 14:20:37 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 11:04:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
 #include <iostream>
 
 class WrongAnimal
 {
-	private:
 
 	protected:
 		std::string	type;

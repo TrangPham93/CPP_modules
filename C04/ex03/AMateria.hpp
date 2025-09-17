@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 12:47:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 11:03:22 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 13:41:28 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class AMateria
 {
 	protected:
 		std::string type;
+		
 	public:
 		AMateria();
 		virtual ~AMateria();

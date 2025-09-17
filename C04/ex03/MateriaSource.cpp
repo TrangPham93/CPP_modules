@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 16:15:39 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 13:11:27 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 16:19:49 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ AMateria* MateriaSource::createMateria(std::string const & type)
 	for (int i = 0; i < 4; i++)
 	{
 		if (_inventoryM[i] && _inventoryM[i]->getType() == type)
-			return _inventoryM[i]->clone();
+			return _inventoryM[i];
 	}
 	return 0;
 }

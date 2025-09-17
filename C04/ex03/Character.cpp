@@ -6,13 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 15:25:02 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 13:14:24 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 16:16:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character()
+Character::Character(): _name("unknown")
 {
 	std::cout << "Character: constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
@@ -23,13 +23,14 @@ Character::~Character()
 {
 	std::cout << "Character: destructor called" << std::endl;
 	for (int i = 0; i < 4; i++)
+	{
 		delete _inventory[i];
+	}
 }
 
-Character::Character(std::string name)
+Character::Character(std::string name): _name(name)
 {
 	std::cout << "Character: para_constructor called" << std::endl;
-	_name = name;
 	for (int i = 0; i < 4; i++)
 		_inventory[i] = nullptr;
 }
@@ -80,7 +81,8 @@ void Character::equip(AMateria* m)
 	{
 		if (_inventory[i] == nullptr)
 		{
-			_inventory[i] = m;
+			_inventory[i] = m->clone();
+			std::cout << this->getName() << " equip " << m->getType() << std::endl;
 			return;
 		}
 	}
@@ -90,12 +92,23 @@ void Character::unequip(int idx)
 {
 	if (idx < 0 || idx > 3)
 		return ;
+	std::cout << this->getName() << " unequip materia at " << idx << std::endl;
 	_inventory[idx] = nullptr;
+	
 }
 
 void Character::use(int idx, ICharacter& target)
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	_inventory[idx]->use(target);
+	if (_inventory[idx])
+		_inventory[idx]->use(target);
+	else
+		std::cout << "Materia at index [" << idx 
+			<< "] has been unequipped, cannot use" << std::endl;
+}
+
+AMateria*	Character::getInvMateria(int idx)
+{
+	return this->_inventory[idx];	
 }

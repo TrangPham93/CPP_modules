@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 16:13:59 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 11:03:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 14:28:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	MateriaSource(const MateriaSource& other);
 	MateriaSource& operator= (const MateriaSource& other);
 
-	void 		learnMateria(AMateria* m);
-	AMateria*	createMateria(std::string const & type);
+	void 		learnMateria(AMateria* m) override;
+	AMateria*	createMateria(std::string const & type) override;
 };
 

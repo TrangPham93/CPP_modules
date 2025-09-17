@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:19:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 11:03:33 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 13:47:10 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ public:
 	Cure(const Cure& other);
 	Cure& operator= (const Cure& other);
 	
-	Cure* clone() const;
-	void use(ICharacter& target);
+	Cure* clone() const override;
+	void use(ICharacter& target) override;
 };

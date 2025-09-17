@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 13:18:58 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 11:03:38 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 13:45:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 class Ice : public AMateria
 {
-private:
-	
+
 public:
 	Ice();
 	~Ice();
 	Ice(const Ice& other);
 	Ice& operator= (const Ice& other);
 	
-	Ice* clone() const;
-	void use(ICharacter& target);
+	Ice* clone() const override;
+	void use(ICharacter& target) override;
 };
 

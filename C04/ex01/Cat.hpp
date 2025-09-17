@@ -6,11 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 12:40:22 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/11 20:53:31 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 12:02:17 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+#include <iostream>
 #include "Animal.hpp"
 #include "Brain.hpp"
 
@@ -25,7 +27,7 @@ public:
 	Cat(const Cat& other);
 	Cat& operator=(const Cat& other);
 	
-	void	makeSound() const;
+	void	makeSound() const override;
 	void	getBrain() const;
 	void	setBrain(std::string idea);
 };

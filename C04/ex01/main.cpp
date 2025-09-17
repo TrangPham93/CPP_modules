@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/10 21:18:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/12 12:18:04 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 12:35:23 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 	Dog	dog2 = dog1;
 	std::cout << "dog1 brain: " <<std::endl;
 	dog1.getBrain();
-	std::cout << "deep copy of dog1 brain: " << std::endl;
+	std::cout << "dog2 is a deep copy of dog1 brain: " << std::endl;
 	dog2.getBrain();
 
 	std::cout << "\n------deep copy CAT testing---------------\n\n";
@@ -47,7 +47,7 @@ int main()
 	cat1.setBrain("new meao");
 	std::cout << "cat1 brain: " <<std::endl;
 	cat1.getBrain();
-	std::cout << "deep copy of cat1 brain: " << std::endl;
+	std::cout << "cat 2 is a deep copy of cat1 brain: " << std::endl;
 	cat2.getBrain();
 
 	std::cout << "\n------ ANIMAL testing---------------\n\n";

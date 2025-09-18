@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:58:50 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 16:44:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,20 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= (const ShrubberyCreation
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
+	std::cout << "Shrubbery Form: to execute" << std::endl;
+	
 	if (!this->getSignStatus())
+	{
+		std::cout << "Shrubbery Form: failed to execute." << std::endl;
 		throw ShrubberyCreationForm::FormNotSigned();
-	else if (executor.getGrade() > this->getExecuteGrade())
+	}
+	if (executor.getGrade() > this->getExecuteGrade())
+	{
+		std::cout << "Shrubbery Form: failed to execute. Bureaucrat grade: "
+			<< executor.getGrade() << " & executeGrade: " 
+			<< this->getExecuteGrade() << std::endl;
 		throw Bureaucrat::GradeTooLowException();
+	}
 	
 	std::ofstream shrubFile;
 	shrubFile.open(_target + "_shrubbery");

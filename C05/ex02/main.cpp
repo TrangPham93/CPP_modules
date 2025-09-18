@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 16:52:07 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 17:11:54 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,13 @@ int	main()
 	try
 	{
 		AForm*		newForm = new RobotomyRequestForm("factory");
-		Bureaucrat	Bill("Bill", 46);
-		Bureaucrat	Kate("Kate", 3);
+		Bureaucrat	Kate("Kate", 45);
+		std::cout << *newForm << std::endl;
 		
-		std::cout << newForm->getFormName() << ": sign grade of " 
-			<< newForm->getSignGrade() << ", execute grade of " 
-			<< newForm->getExecuteGrade() << ", signed == " 
-			<< newForm->getSignStatus() << std::endl;
-		newForm->beSigned(Bill);
-		newForm->execute(Bill);
+		Kate.signForm(*newForm);
+		std::cout << *newForm << std::endl;
 		Kate.executeForm(*newForm);
+		newForm->execute(Kate);
 		
 		delete newForm;
 	}
@@ -69,17 +66,16 @@ int	main()
 	std::cout << "\n----------test-president---------\n" << std::endl;
 	try
 	{
-		AForm*		newForm = new PresidentialPardonForm("blue house");
+		AForm*		newForm = new PresidentialPardonForm("kkk");
 		Bureaucrat	Mill("Mill", 6);
 		Bureaucrat	Kate("Kate", 3);
+		std::cout << *newForm << std::endl;
 		
-		std::cout << newForm->getFormName() << ": sign grade of " 
-			<< newForm->getSignGrade() << ", execute grade of " 
-			<< newForm->getExecuteGrade() << ", signed == " 
-			<< newForm->getSignStatus() << std::endl;
 		newForm->beSigned(Mill);
-		newForm->execute(Mill);
+		std::cout << *newForm << std::endl;
+
 		newForm->execute(Kate);
+		Kate.signForm(*newForm);
 			
 		delete newForm;
 	}
@@ -87,7 +83,5 @@ int	main()
 	{
 		std::cout << e.what() << std::endl;		
 	}
-
-
 	return 0;
 }

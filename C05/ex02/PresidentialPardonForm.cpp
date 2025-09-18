@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 11:06:38 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 17:11:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,15 @@ PresidentialPardonForm& PresidentialPardonForm::operator= (const PresidentialPar
 void	PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
 	if (!this->getSignStatus())
+	{
+		std::cout << "Pardon failed" << std::endl;
 		throw PresidentialPardonForm::FormNotSigned();
-	else if (executor.getGrade() > this->getExecuteGrade())
+	}
+	if (executor.getGrade() > this->getExecuteGrade())
+	{
+		std::cout << "Pardon failed" << std::endl;		
 		throw Bureaucrat::GradeTooLowException();
-	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
+	}
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n" << std::endl;
 }
 

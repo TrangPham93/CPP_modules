@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 11:03:38 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 17:05:46 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const
 		std::cout << "Robotomy failed" << std::endl;
 		throw Bureaucrat::GradeTooLowException();
 	}
-	std::cout << "Makes drilling noises: zzzzzzzzzzzzzzz" << std::endl;
-	std::cout << _target << " has been robotomized successfully 50% of the time" 
+	std::cout << "zzzzzzzzzzzzzzz " << _target 
+		<< " has been robotomized successfully 50% of the time" 
 		<< std::endl;
 }
 

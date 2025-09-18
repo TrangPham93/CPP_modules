@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 22:39:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 11:12:38 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,16 @@ const char* AForm::FormNotSigned::what() const throw()
 	return "Exception: Form is not signed yet";
 }
 
+const char* AForm::FormAlreadySigned::what() const throw()
+{
+	return "Exception: Form is already signed";
+}
+
 void	AForm::beSigned(Bureaucrat& b)
 {
 	std::cout << "Preprare to sign!!" << std::endl;
+	if (this->_isSign == true)
+		throw AForm::FormAlreadySigned();
 	if (b.getGrade() < 1)
 		throw AForm::GradeTooHighException();
 	else if (b.getGrade() > 150)

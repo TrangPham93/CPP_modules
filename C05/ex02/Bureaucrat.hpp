@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:18:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:38:58 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 12:18:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
+
 	
 	std::string		getName() const;
 	unsigned int	getGrade() const;
 	void			incrementGrade();
 	void			decrementGrade();
 	void			signForm(AForm& formToSign);
+	void			executeForm(AForm const & form);
 };
 
 std::ostream& operator << (std::ostream &out, const Bureaucrat& obj);

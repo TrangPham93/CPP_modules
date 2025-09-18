@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 11:09:35 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/18 12:22:51 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	main()
 	{
 		AForm*		newForm = new RobotomyRequestForm("factory");
 		Bureaucrat	Bill("Bill", 46);
+		Bureaucrat	Kate("Kate", 3);
 		
 		std::cout << newForm->getFormName() << ": sign grade of " 
 			<< newForm->getSignGrade() << ", execute grade of " 
@@ -54,7 +55,8 @@ int	main()
 			<< newForm->getSignStatus() << std::endl;
 		newForm->beSigned(Bill);
 		newForm->execute(Bill);
-			
+		Kate.executeForm(*newForm);
+		
 		delete newForm;
 	}
 	catch(std::exception& e)

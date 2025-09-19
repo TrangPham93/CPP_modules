@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 19:54:14 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 21:35:23 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ class Form
 private:
 	const std::string	_formName;
 	bool				_isSign;
-	const int			_signGrade;
-	const int			_executeGrade;
+	const unsigned int	_signGrade;
+	const unsigned int	_executeGrade;
 
 public:
 	Form();
 	~Form();
-	Form(std::string name, int signGrade, int executeGrade);
+	Form(std::string name, unsigned int signGrade, unsigned int executeGrade);
 	Form(const Form& other);
 	Form& operator=(const Form& other);
 
@@ -41,10 +41,10 @@ public:
 		virtual const char* what() const throw();
 	};
 	
-	std::string getFormName() const;
-	bool		getSignStatus() const;
-	int			getSignGrade() const;
-	int			getExecuteGrade() const;
+	std::string 	getFormName() const;
+	bool			getSignStatus() const;
+	unsigned int	getSignGrade() const;
+	unsigned int	getExecuteGrade() const;
 
 	void		beSigned(Bureaucrat& b);
 };

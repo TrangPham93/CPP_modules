@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/16 12:52:54 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/17 21:36:40 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ Form::~Form()
 	std::cout << "Form: destructor called" << std::endl;
 }
 
-Form::Form(std::string name, int signGrade, int executeGrade) :_formName(name),
+Form::Form(std::string name, unsigned int signGrade, 
+	unsigned int executeGrade) 	:_formName(name),
 	_isSign(false), _signGrade(signGrade), _executeGrade(executeGrade)
 {
 	std::cout << "Form: para_constructor called" << std::endl;
@@ -84,12 +85,12 @@ bool	Form::getSignStatus() const
 	return _isSign;
 }
 
-int	Form::getSignGrade() const
+unsigned int	Form::getSignGrade() const
 {
 	return _signGrade;
 }
 
-int			Form::getExecuteGrade() const
+unsigned int	Form::getExecuteGrade() const
 {
 	return _executeGrade;	
 }

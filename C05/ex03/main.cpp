@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 17:13:19 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/19 12:11:38 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"	
 
 /* the object method throws exception, so the object goes out of scope in 
 try block, resulting in destructor called. 
@@ -22,22 +23,30 @@ After that, catch block print the message, so exception is printed after
 destructor */
 int	main()
 {
-	std::cout << "\n----------test-shrubbery---------\n" << std::endl;
+	std::cout << "\n----------test-intern---------\n" << std::endl;
 	try
 	{
-		AForm*		newForm = new ShrubberyCreationForm("home");
-		Bureaucrat	Jim("Jim", 12);
-		std::cout << *newForm << std::endl;
+		Intern someRandomIntern;
+		AForm* rrf;
 		
-		newForm->beSigned(Jim);
-		std::cout << *newForm << std::endl;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+
+		delete rrf;
+	}
+	catch(std::exception& e)
+	{
+		std::cout << e.what() << std::endl;		
+	}
+
+	std::cout << "\n----------non-exist-form---------\n" << std::endl;
+	try
+	{
+		Intern anotherIntern;
+		AForm* rrf;
 		
-		newForm->execute(Jim);
-		
-		Bureaucrat	Cal("Cal", 13);
-		Cal.signForm(*newForm);
-		Cal.executeForm(*newForm);
-		delete newForm;
+		rrf = anotherIntern.makeForm("robotomy", "Bender");
+
+		delete rrf;
 	}
 	catch(std::exception& e)
 	{

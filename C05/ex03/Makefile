@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/18 12:14:29 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/19 11:51:46 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,19 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
-HEADERS		= Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
+SOURCES		= main.cpp \
+              Bureaucrat.cpp \
+			  AForm.cpp \
+			  ShrubberyCreationForm.cpp \
+			  RobotomyRequestForm.cpp \
+			  PresidentialPardonForm.cpp \
+			  Intern.cpp
+HEADERS		= Bureaucrat.hpp \
+			  AForm.hpp \
+			  ShrubberyCreationForm.hpp \
+			  RobotomyRequestForm.hpp \
+			  PresidentialPardonForm.hpp \
+			  Intern.hpp
 
 # Executables
 NAME		= form

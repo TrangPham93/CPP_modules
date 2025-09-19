@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:14:30 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 17:28:36 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/19 12:08:35 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "InternHelper.hpp"
 
 Intern::Intern()
 {
@@ -28,30 +29,48 @@ Intern::~Intern()
 Intern::Intern(const Intern& other)
 {
 	std::cout << "Intern: copy constructor called" << std::endl;
+	(void)other;
 }
 
 Intern& Intern::operator=(const Intern& other)
 {
 	std::cout << "Intern: copy assignment called" << std::endl;
+	(void)other;
+	return (*this);
+}
+
+eForm	getForm(std::string const formName)
+{
+	const std::string	formArr[3] = {"shrubbery creation", 
+										"robotomy request", 
+										"presidential pardon"};
+	for (int i = 0; i < 3; i++)
+	{
+		if (formArr[i] == formName)
+			return static_cast<eForm>(i);
+	}
+	return UNKNOWN;
 }
 
 AForm*	Intern::makeForm(std::string const formName, std::string const target)
 {
-	switch (formName)
+	AForm* createdForm;
+
+	switch (getForm(formName))
 	{
-	case ("ShrubberyCreationForm"):
-		ShrubberyCreationForm(target);
+	case SHRUBBERY:
+		createdForm = new ShrubberyCreationForm(target);
 		break;
-	
-	case ():
-		RobotomyRequestForm(target);
+	case ROBOTOMY:
+		createdForm = new RobotomyRequestForm(target);
 		break;
-	case ():
-		PresidentialPardonForm(target);
+	case PARDON:
+		createdForm = new PresidentialPardonForm(target);
 		break;
-		
 	default:
-		std::cout << "" << std::endl;
+		throw std::runtime_error("Intern: form name doesn't exist");
 		break;
 	}
+	std::cout << "Intern creates " << createdForm->getFormName() << std::endl;
+	return createdForm;
 }

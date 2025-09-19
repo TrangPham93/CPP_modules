@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   InternHelper.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/18 17:13:59 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/19 11:15:11 by trpham           ###   ########.fr       */
+/*   Created: 2025/09/19 11:52:38 by trpham            #+#    #+#             */
+/*   Updated: 2025/09/19 11:54:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include "AForm.hpp"
-
-class Intern
+enum eForm
 {
-private:
-	
-public:
-	Intern();
-	~Intern();
-	Intern(const Intern& other);
-	Intern& operator=(const Intern& other);
-
-	AForm*	makeForm(std::string const formName, std::string const target);
+	SHRUBBERY,
+	ROBOTOMY,
+	PARDON,
+	UNKNOWN
 };
-

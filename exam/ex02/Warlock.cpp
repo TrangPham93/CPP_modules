@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 10:27:29 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/24 11:51:17 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/24 11:54:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	Warlock::launchSpell(const std::string spellName, const ATarget& target)
 {
 	ASpell* newSpell = _spellBook->createSpell(spellName, target);
 	if (newSpell)
+	{
 		newSpell->launch(target);
-	delete newSpell;
+		delete newSpell;
+	}
 }

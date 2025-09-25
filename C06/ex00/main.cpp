@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 12:15:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/25 11:12:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/25 18:30:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cerr << "Error: " << e.what() << '\n';
 	}
 	
 	return EXIT_SUCCESS;

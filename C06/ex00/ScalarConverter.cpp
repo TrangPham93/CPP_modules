@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/19 12:15:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/25 11:12:42 by trpham           ###   ########.fr       */
+/*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
+/*   Updated: 2025/09/25 11:09:01 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-int	main(int ac, char **av)
+ScalarConverter::~ScalarConverter()
 {
-	if (ac != 2)
-	{
-		std::cout << "Error: no input.\nUsage: ./converter [args: char in single quote, int, double, float with suffix .f]" << std::endl;
-		return EXIT_FAILURE;
-	}
+}
+
+void ScalarConverter::convert (std::string str)
+{
+	// check what is the input string
+	std::cout << std::stod(str) << std::endl; //convert str to double
+	std::stof(str); //convert str to float
 	
-	std::string input = av[1];
-	try
-	{
-		ScalarConverter::convert(input);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-	
-	return EXIT_SUCCESS;
 }

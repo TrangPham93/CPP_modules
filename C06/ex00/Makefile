@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/09/15 16:07:47 by trpham           ###   ########.fr        #
+#    Updated: 2025/09/25 11:09:28 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Bureaucrat.cpp
-HEADERS		= Bureaucrat.hpp
+SOURCES		= main.cpp ScalarConverter.cpp
+HEADERS		= ScalarConverter.hpp
 
 # Executables
-NAME		= bureaucrat
+NAME		= converter
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./bureaucrat"
+	@echo "Usage: ./converter [args: char in single quote, int, double, float with suffix .f]"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

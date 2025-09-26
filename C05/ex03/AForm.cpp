@@ -6,17 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 16:45:35 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:24:13 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
-
-// AForm::AForm() 
-// 	: _formName("unknown"), _isSign(false), _signGrade(1), _executeGrade(1)
-// {
-// 	std::cout << "Form: constructor called" << std::endl;
-// }
 
 AForm::~AForm()
 {

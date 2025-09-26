@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:04 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:35:23 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:29:58 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ private:
 	const unsigned int	_executeGrade;
 
 public:
-	Form();
+	Form() = delete;
 	~Form();
 	Form(std::string name, unsigned int signGrade, unsigned int executeGrade);
 	Form(const Form& other);
@@ -37,6 +37,11 @@ public:
 	};
 
 	class GradeTooLowException : public std::exception
+	{
+		virtual const char* what() const throw();
+	};
+
+	class FormAlreadySigned : public std::exception
 	{
 		virtual const char* what() const throw();
 	};

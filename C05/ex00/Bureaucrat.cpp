@@ -6,17 +6,12 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:23:56 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:32:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:13:25 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-
-Bureaucrat::Bureaucrat() : _name("unknown"), _grade(150)
-{
-	std::cout << "Bureaucrat: constructor called" << std::endl;
-}
 
 Bureaucrat::~Bureaucrat()
 {
@@ -33,7 +28,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int newGrade): _name(name)
 	_grade = newGrade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other): _name(other._name)
 {
 	std::cout << "Bureaucrat: copy constructor called" << std::endl;
 	if (other._grade < 1)

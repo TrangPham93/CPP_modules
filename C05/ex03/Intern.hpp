@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:13:59 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/19 11:15:11 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:45:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ private:
 public:
 	Intern();
 	~Intern();
-	Intern(const Intern& other);
-	Intern& operator=(const Intern& other);
-
+	Intern(const Intern& other) = delete;
+	Intern& operator=(const Intern& other) = delete;
+	
 	AForm*	makeForm(std::string const formName, std::string const target);
 };
 

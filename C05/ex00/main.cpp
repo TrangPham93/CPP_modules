@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/15 17:16:18 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:13:09 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ int	main()
 	std::cout << "\n----------test-2---------\n" << std::endl;
 	try
 	{
-		Bureaucrat	Min;
+		Bureaucrat	Jim("Jim", 2);
+		Bureaucrat	Min(Jim);
 		
 		std::cout << Min << std::endl;
 		Min.decrementGrade();		

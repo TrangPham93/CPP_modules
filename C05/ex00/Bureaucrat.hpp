@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:18:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:31:44 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:13:30 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ private:
 	unsigned int		_grade;	
 
 public:
-	Bureaucrat();
+	Bureaucrat() = delete;
 	~Bureaucrat();
 	Bureaucrat(std::string name, unsigned int newGrade);
 	Bureaucrat(const Bureaucrat& other);

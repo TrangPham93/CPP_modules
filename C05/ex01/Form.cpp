@@ -6,17 +6,11 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 17:18:10 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/17 21:36:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:34:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-
-Form::Form() 
-	: _formName("unknown"), _isSign(false), _signGrade(1), _executeGrade(1)
-{
-	std::cout << "Form: constructor called" << std::endl;
-}
 
 Form::~Form()
 {
@@ -62,10 +56,19 @@ const char* Form::GradeTooLowException::what() const throw()
 	return "Exception: Form's grade is too low";
 }
 
+const char* Form::FormAlreadySigned::what() const throw()
+{
+	return "Form Exception: form is already signed";
+}
 	
 void	Form::beSigned(Bureaucrat& b)
 {
 	std::cout << "Preprare to sign!!" << std::endl;
+	if (this->_isSign == true)
+	{
+		std::cout << "Form: failed to sign" << std::endl;
+		throw Form::FormAlreadySigned();
+	}
 	if (b.getGrade() < 1)
 		throw Form::GradeTooHighException();
 	else if (b.getGrade() > 150)

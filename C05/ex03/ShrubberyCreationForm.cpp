@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 13:06:43 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/18 16:44:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 12:35:41 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	shrubFile.open(_target + "_shrubbery");
 
 	if (!shrubFile.is_open())
-		throw "Error in creating file";
+		throw std::runtime_error("Error in creating file");
 	shrubFile << "       ccee88oo\n"
              "    C8O8O8Q8PoOb o8oo\n"
              " dOB69QO8PdUOpugoO9bD\n"

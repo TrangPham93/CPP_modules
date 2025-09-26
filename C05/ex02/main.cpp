@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 15:49:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/26 12:41:32 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 15:54:51 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,17 @@ int	main()
 	std::cout << "\n----------test-shrubbery---------\n" << std::endl;
 	try
 	{
-		AForm*		newForm = new ShrubberyCreationForm("home");
-		Bureaucrat	Jim("Jim", 12);
-		std::cout << *newForm << std::endl;
+		ShrubberyCreationForm newForm("home");
+		Bureaucrat	Jim("Jim", 150);
+		std::cout << newForm << std::endl;
 		
-		newForm->beSigned(Jim);
-		std::cout << *newForm << std::endl;
+		newForm.beSigned(Jim);
+		std::cout << newForm << std::endl;
 		
-		newForm->execute(Jim);
+		newForm.execute(Jim);
 		
 		Bureaucrat	Cal("Cal", 13);
-		Cal.signForm(*newForm);
-		delete newForm;
+		Cal.signForm(newForm);
 	}
 	catch(std::exception& e)
 	{
@@ -46,16 +45,15 @@ int	main()
 	std::cout << "\n----------test-robotomy---------\n" << std::endl;
 	try
 	{
-		AForm*		newForm = new RobotomyRequestForm("factory");
-		Bureaucrat	Kate("Kate", 45);
-		std::cout << *newForm << std::endl;
+		RobotomyRequestForm  newForm("factory");
+		Bureaucrat	Kate("Kate", 50);
+		std::cout << newForm << std::endl;
 		
-		Kate.signForm(*newForm);
-		std::cout << *newForm << std::endl;
-		Kate.executeForm(*newForm);
-		newForm->execute(Kate);
+		Kate.signForm(newForm);
+		std::cout << newForm << std::endl;
+		Kate.executeForm(newForm);
+		newForm.execute(Kate);
 		
-		delete newForm;
 	}
 	catch(std::exception& e)
 	{
@@ -65,18 +63,17 @@ int	main()
 	std::cout << "\n----------test-president---------\n" << std::endl;
 	try
 	{
-		AForm*		newForm = new PresidentialPardonForm("kkk");
+		PresidentialPardonForm newForm("kkk");
 		Bureaucrat	Mill("Mill", 6);
 		Bureaucrat	Kate("Kate", 3);
-		std::cout << *newForm << std::endl;
+		std::cout << newForm << std::endl;
 		
-		newForm->beSigned(Mill);
-		std::cout << *newForm << std::endl;
+		newForm.beSigned(Mill);
+		std::cout << newForm << std::endl;
 
-		newForm->execute(Kate);
-		Kate.signForm(*newForm);
+		newForm.execute(Kate);
+		Kate.signForm(newForm);
 			
-		delete newForm;
 	}
 	catch(std::exception& e)
 	{

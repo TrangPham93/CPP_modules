@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/18 17:14:30 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/26 12:45:50 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/26 15:49:31 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,6 @@ Intern::~Intern()
 {
 	std::cout << "Intern: destructor called" << std::endl;	
 }
-
-// Intern::Intern(const Intern& other)
-// {
-// 	std::cout << "Intern: copy constructor called" << std::endl;
-// 	(void)other;
-// }
-
-// Intern& Intern::operator=(const Intern& other)
-// {
-// 	std::cout << "Intern: copy assignment called" << std::endl;
-// 	(void)other;
-// 	return (*this);
-// }
 
 eForm	getForm(std::string const formName)
 {

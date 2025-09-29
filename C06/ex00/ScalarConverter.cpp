@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/25 19:12:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/29 12:49:42 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,24 @@ ScalarConverter::~ScalarConverter()
 {
 }
 
-static void	printChar(std::string str)
-{
-	std::cout << "char: " << str << std::endl;
-	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
-	std::cout << "float: " << static_cast<float>(str[0]) << std::endl;
-	std::cout << "double: " << static_cast<float>(str[0]) << std::endl;
+// static void	printChar(std::string str)
+// {
+// 	std::cout << "char: " << str << std::endl;
+// 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+// 	std::cout << "float: " << static_cast<float>(str[0]) << std::endl;
+// 	std::cout << "double: " << static_cast<float>(str[0]) << std::endl;
 	
-}
+// }
 
 static void	printDigit(int num)
 {
 	if (num < 32 || num > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
-		std::cout << "char: Non displayable" << static_cast<char>(num) << std::endl;
+		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
 	std::cout << "int: " << static_cast<int>(num) << std::endl;
-	std::cout << "float: " << static_cast<float>(num) << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1)
+		<< static_cast<float>(num) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(num) << std::endl;
 	
 }
@@ -62,11 +63,22 @@ void ScalarConverter::convert (std::string str)
 		
 	// }
 	// std::stof(str); //convert str to float
+	// std::cout << "str: " << str << std::endl;
+	// 	std::cout << "str: " << str[0] << std::endl;
 	int	num = 0;
-	for (int i = 0; i < str.length(); i++)
+	int sign = 1;
+	
+	for (unsigned int i = 0; i < str.length(); i++)
 	{
-		num = num * 10 + str[i];
+		if (str[i] == '-')
+		{
+			sign = -1;
+			continue;
+		}
+		num = num * 10 + str[i] - '0';
 	}
+	num = num * sign;
+	// std::cout << "num: " << num << std::endl;
 	printDigit(num);
 	
 }

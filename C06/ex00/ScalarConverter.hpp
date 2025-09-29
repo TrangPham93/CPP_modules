@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/29 12:31:40 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/29 14:27:43 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,11 @@ public:
 	static void convert (std::string str);
 };
 
+enum	eType
+{
+	TYPE_CHAR,	
+	TYPE_INT,
+	TYPE_FLOAT,
+	TYPE_DOUBLE,
+	UNKNOWN
+};

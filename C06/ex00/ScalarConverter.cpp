@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/29 15:35:15 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/29 15:51:47 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,10 +136,14 @@ eType getInputType(std::string str)
 		else
 			return TYPE_CHAR;
 	}
+	
 	if (isOnlyDigitInput(str))
 		return TYPE_INT;
-	unsigned int k = str.find('.');
-	std::string beforeDot = str.
+	
+		// how to determine if it's double or float
+	if ()
+	
+	
 	return UNKNOWN;
 }
 

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/30 22:57:56 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/30 23:35:15 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,16 @@ static bool	isOnlyDigitInput(std::string str)
 	return true;
 }
 
+static bool isDoulbe(std::string str)
+{
+	// if (str.back() == 'f' || str.back() == 'F')
+	// 	str.pop_back();
+	// else
+	// 	return false;
+	
+	return true;
+}
+
 eType getInputType(std::string str)
 {
 	if (str.length() == 1)
@@ -138,17 +148,31 @@ eType getInputType(std::string str)
 		else
 			return TYPE_CHAR;
 	}
-	else if ((str.length() == 3 && str == "nan") 
+	else if ((str.length() == 3 && (str == "nan" || str == "inf")) 
 		|| (str.length() == 4 && (str == "nanf" || str == "+inf" 
 			|| str == "-inf"))
 		|| (str.length() == 5 && (str == "+inff" || str == "-inff")))
-		return SPECIALS;
-	else if (str.back() == 'f' || str.back() == 'F')
-		return TYPE_FLOAT;
+		{
+			std::cout << "special\n"; 
+			return SPECIALS;
+		}
+	else if ((str.back() == 'f' || str.back() == 'F'))
+	{
+		str.pop_back();
+		if (isDoulbe(str) == true)
+		{
+			std::cout << "float\n"; 
+			return TYPE_FLOAT;
+		}
+		return UNKNOWN;
+	}
 	else if (str.find('.') != std::string::npos 
 		|| str.find('e') != std::string::npos 
 		|| str.find('E') != std::string::npos)
-		return TYPE_DOUBLE;
+		{
+			std::cout << "double\n"; 
+			return TYPE_DOUBLE;
+		}
 	else if (isOnlyDigitInput(str))
 		return TYPE_INT;
 	
@@ -158,7 +182,7 @@ eType getInputType(std::string str)
 void ScalarConverter::convert (std::string str)
 {
 	
-	std::cout << "str: " << str << std::endl;
+	// std::cout << "str: " << str << std::endl;
 	try
 	{
 		switch (getInputType(str))

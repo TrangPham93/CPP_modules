@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/29 15:51:47 by trpham           ###   ########.fr       */
+/*   Updated: 2025/09/30 22:57:56 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,55 +18,46 @@ ScalarConverter::~ScalarConverter()
 
 static void	convertFromFloat(std::string str)
 {
-	int	num = 0;
-	int sign = 1;
-	
-	for (unsigned int i = 0; i < str.length(); i++)
-	{
-		if (str[i] == '-')
-		{
-			sign = -1;
-			continue;
-		}
-		num = num * 10 + str[i] - '0';
-	}
-	num = num * sign;
+	str.pop_back();
+	float	num = std::stof(str);
 	
 	if (num < 32 || num > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(num) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1)
-		<< static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(num) << std::endl;
 	
+	if (num > INT_MAX || num < INT_MIN)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(num) << std::endl;
+	
+	std::cout << "float: " << std::fixed << std::setprecision(1)
+		<< num << "f" << std::endl;
+	
+	std::cout << "double: " << static_cast<double>(num) << std::endl;
 }
 
 static void	convertFromDouble(std::string str)
 {
-	int	num = 0;
-	int sign = 1;
-	
-	for (unsigned int i = 0; i < str.length(); i++)
-	{
-		if (str[i] == '-')
-		{
-			sign = -1;
-			continue;
-		}
-		num = num * 10 + str[i] - '0';
-	}
-	num = num * sign;
+	double num = std::stod(str);
 	
 	if (num < 32 || num > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-	std::cout << "int: " << static_cast<int>(num) << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1)
+	
+	if (num > INT_MAX || num < INT_MIN)
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(num) << std::endl;
+	
+	if (num > __FLT_MAX__ || num < __FLT_MIN__)
+		std::cout << "float: impossible" << std::endl;
+	else
+		std::cout << "float: " << std::fixed << std::setprecision(1)
 		<< static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(num) << std::endl;
+	
+	std::cout << "double: " << num << std::endl;
 	
 }
 
@@ -81,13 +72,13 @@ static void	convertFromChar(std::string str)
 	std::cout << "int: " << static_cast<int>(num) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1)
 		<< static_cast<float>(num) << "f" << std::endl;
-	std::cout << "double: " << static_cast<double>(num) << std::endl;
-	
+	std::cout << "double: "  << std::fixed << std::setprecision(1)
+		<< static_cast<double>(num) << std::endl;
 }
 
 static void	convertFromInt(std::string str)
 {
-	int	num = 0;
+	long long	num = 0;
 	int sign = 1;
 	
 	for (unsigned int i = 0; i < str.length(); i++)
@@ -100,7 +91,10 @@ static void	convertFromInt(std::string str)
 		num = num * 10 + str[i] - '0';
 	}
 	num = num * sign;
-	
+	if (num > INT_MAX)
+		throw std::range_error("Int: overflow");
+	else if (num < INT_MIN)
+		throw std::range_error("Int: underflow");	
 	if (num < 32 || num > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
@@ -109,7 +103,15 @@ static void	convertFromInt(std::string str)
 	std::cout << "float: " << std::fixed << std::setprecision(1)
 		<< static_cast<float>(num) << "f" << std::endl;
 	std::cout << "double: " << static_cast<double>(num) << std::endl;
-	
+}
+
+static void convertFromPseudo(std::string str)
+{
+	(void)str;
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	std::cout << "float: nanf" << std::endl;
+	std::cout << "double: nan" << std::endl;
 }
 
 static bool	isOnlyDigitInput(std::string str)
@@ -118,7 +120,7 @@ static bool	isOnlyDigitInput(std::string str)
 	{
 		if (!isdigit(str[i]))
 		{
-			if ( i == 0 && str[i] == '-')
+			if ( i == 0 && (str[i] == '-' || str[i] == '+'))
 				continue;
 			else
 				return false;
@@ -131,18 +133,24 @@ eType getInputType(std::string str)
 {
 	if (str.length() == 1)
 	{
-		if (str[0] >= '0' && str[0] <= '9')
+		if (isdigit(str[0]))
 			return TYPE_INT;
 		else
 			return TYPE_CHAR;
 	}
-	
-	if (isOnlyDigitInput(str))
+	else if ((str.length() == 3 && str == "nan") 
+		|| (str.length() == 4 && (str == "nanf" || str == "+inf" 
+			|| str == "-inf"))
+		|| (str.length() == 5 && (str == "+inff" || str == "-inff")))
+		return SPECIALS;
+	else if (str.back() == 'f' || str.back() == 'F')
+		return TYPE_FLOAT;
+	else if (str.find('.') != std::string::npos 
+		|| str.find('e') != std::string::npos 
+		|| str.find('E') != std::string::npos)
+		return TYPE_DOUBLE;
+	else if (isOnlyDigitInput(str))
 		return TYPE_INT;
-	
-		// how to determine if it's double or float
-	if ()
-	
 	
 	return UNKNOWN;
 }
@@ -151,7 +159,6 @@ void ScalarConverter::convert (std::string str)
 {
 	
 	std::cout << "str: " << str << std::endl;
-	
 	try
 	{
 		switch (getInputType(str))
@@ -167,6 +174,9 @@ void ScalarConverter::convert (std::string str)
 			break;
 		case TYPE_DOUBLE:
 			convertFromDouble(str);
+			break;
+		case SPECIALS:
+			convertFromPseudo(str);
 			break;
 		default:
 			throw std::runtime_error("Incorrect input");

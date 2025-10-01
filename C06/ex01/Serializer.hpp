@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:05:35 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 15:34:23 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/01 18:23:32 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 
 struct Data;
 
+/* uintptr_t is unsigned int type, that is designed to store a pointer. It's 
+guaranteed to be large enough to hold any memory address on the system it's 
+compiled on.  */
 class Serializer
 {
 private:

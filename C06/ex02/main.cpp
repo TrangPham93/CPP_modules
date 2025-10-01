@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 19:52:06 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 21:36:12 by trpham           ###   ########.fr       */
+/*   Created: 2025/10/01 20:02:08 by trpham            #+#    #+#             */
+/*   Updated: 2025/10/01 21:49:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <cstdlib>
-#include <iostream>
-#include <ctime>
+#include "Base.hpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 
-class Base
+int main()
 {
+	// Get a different random number each time the program runs
+	srand(time(0));
+	try
+	{
+		Base * newBase = generate();
+		identify(newBase);
+		identify(*newBase);
 
-public:
-	virtual ~Base();
-
-};
-
-Base*	generate(void);
-void	identify(Base* p);
-void	identify(Base& p);
-
+		Base* nullBase = nullptr;
+		identify(nullBase);
+		
+		delete newBase;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+	return 0;
+}

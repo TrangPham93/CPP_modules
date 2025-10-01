@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/10/01 15:59:57 by trpham           ###   ########.fr        #
+#    Updated: 2025/10/01 21:27:18 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-SOURCES		= main.cpp Serializer.cpp
-HEADERS		= Serializer.hpp Data.hpp
+SOURCES		= main.cpp Base.cpp
+HEADERS		= Base.hpp A.hpp B.hpp C.hpp
 
 # Executables
-NAME		= serializer
+NAME		= base
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./serializer"
+	@echo "Usage: ./base"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

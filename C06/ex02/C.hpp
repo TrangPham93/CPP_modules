@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   C.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 19:52:06 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 21:36:12 by trpham           ###   ########.fr       */
+/*   Created: 2025/10/01 19:58:05 by trpham            #+#    #+#             */
+/*   Updated: 2025/10/01 21:25:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <cstdlib>
-#include <iostream>
-#include <ctime>
+#include "Base.hpp"
 
-class Base
+class C : public Base
 {
 
-public:
-	virtual ~Base();
-
 };
-
-Base*	generate(void);
-void	identify(Base* p);
-void	identify(Base& p);
 

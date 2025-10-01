@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 12:05:34 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/01 15:02:22 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static void	convertFromInt(std::string str)
 			std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
 			
 		// int
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
+		std::cout << "int: " << num << std::endl;
 		
 		// float
 		float f = static_cast<float>(num);
@@ -71,64 +71,106 @@ static void	convertFromInt(std::string str)
 static void	convertFromFloat(std::string str)
 {
 	str.pop_back();
-	float	num = std::stof(str);
-	
-	if (num < 32 || num > 126)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-	
-	if (num > std::numeric_limits<int>::max() 
-		|| num < std::numeric_limits<int>::min())
-		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-	
-	// test for precision lost
-	std::cout << "float: " << std::fixed << std::setprecision(1)
-		<< num << "f" << std::endl;
-	
-	std::cout << "double: " << std::fixed << std::setprecision(1)
-		<< static_cast<double>(num) << std::endl;
+	int	countDigit = 0;
+	for (unsigned int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == '.')
+			break;
+		countDigit++;
+	}
+	if (countDigit >= 7)
+		throw std::runtime_error("Conversion may result in precision loss, only receive input less than 7 significant decimal digits.");
+	try
+	{
+		float	num = std::stof(str);
+		// char
+		if (num < 32 || num > 126)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
+		// int
+		if (num > std::numeric_limits<int>::max() 
+			|| num < std::numeric_limits<int>::min())
+			std::cout << "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << static_cast<int>(num) << std::endl;
+		
+		// float
+		std::cout << "float: " << std::fixed << std::setprecision(1)
+			<< num << "f" << std::endl;
+		
+		// double 
+		std::cout << "double: " << std::fixed << std::setprecision(1)
+			<< static_cast<double>(num) << std::endl;
+	}
+	catch(const std::out_of_range& e)
+	{
+		std::cerr << "Float conversion overflowed: " << e.what() << '\n';
+	}
 }
 
 static void	convertFromDouble(std::string str)
 {
-	double num = std::stod(str);
-	std::cout << "number: "<< num << std::endl;
-	
-	if (num < 32 || num > 126)
-		std::cout << "char: Non displayable" << std::endl;
-	else
-		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
-	
-	if (num > std::numeric_limits<int>::max() 
-		|| num < std::numeric_limits<int>::min())
-		std::cout << "int: impossible" << std::endl;
-	else
-		std::cout << "int: " << static_cast<int>(num) << std::endl;
-	// test for precision lost
-	float	f = static_cast<float>(num);
-	if (static_cast<double>(f) != num)
-		std::cout << "float: impossible" << std::endl;
-	else
+	int	countDigit = 0;
+	for (unsigned int i = 0; i < str.length(); i++)
+	{
+		if (str[i] == '.')
+			break;
+		countDigit++;
+	}
+	if (countDigit >= 7)
+		throw std::runtime_error("Conversion may result in precision loss, only receive input less than 7 significant decimal digits.");
+	try
+	{
+		double num = std::stod(str);
+		
+		// char
+		if (num < 32 || num > 126)
+			std::cout << "char: Non displayable" << std::endl;
+		else
+			std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
+			
+		// int
+		if (num > std::numeric_limits<int>::max() 
+			|| num < std::numeric_limits<int>::min())
+			std::cout << "int: impossible" << std::endl;
+		else
+			std::cout << "int: " << static_cast<int>(num) << std::endl;
+			
+		// float
+		float	f = static_cast<float>(num);
 		std::cout << "float: " << std::fixed << std::setprecision(1)
-		<< static_cast<float>(num) << "f" << std::endl;
-	
-	std::cout << "double: " << std::fixed << std::setprecision(1)
-		<< num << std::endl;
-	
+			<< f << "f" << std::endl;
+
+		// double
+		std::cout << "double: " << std::fixed << std::setprecision(1)
+			<< num << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Double conversion overflowed: " << e.what() << '\n';
+	}	
 }
-
-
 
 static void convertFromPseudo(std::string str)
 {
-	(void)str;
-	std::cout << "char: impossible" << std::endl;
-	std::cout << "int: impossible" << std::endl;
-	std::cout << "float: nanf" << std::endl;
-	std::cout << "double: nan" << std::endl;
+	if (str == "nan" || str == "nanf" )
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: nanf" << std::endl;
+		std::cout << "double: nan" << std::endl;
+	}
+	else
+	{
+		if (str.back() == 'f' && str[str.length() - 2] == 'f')
+			str.pop_back();
+		
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << str << "f" << std::endl;
+		std::cout << "double: " << str << std::endl;
+	}
 }
 
 static bool	isOnlyDigitInput(std::string str)
@@ -176,39 +218,24 @@ eType getInputType(std::string str)
 		if (isdigit(str[0]))
 			return TYPE_INT;
 		else
-		{
-			std::cout << "char\n"; 
 			return TYPE_CHAR;
-		}
 	}
-	else if ((str.length() == 3 && (str == "nan" || str == "inf")) 
+	else if ((str.length() == 3 && str == "nan") 
 		|| (str.length() == 4 && (str == "nanf" || str == "+inf" 
 			|| str == "-inf"))
 		|| (str.length() == 5 && (str == "+inff" || str == "-inff")))
-	{
-		std::cout << "special\n"; 
 		return SPECIALS;
-	}
 	else if ((str.back() == 'f' || str.back() == 'F'))
 	{
 		str.pop_back();
 		if (isDouble(str) == true)
-		{
-			std::cout << "float\n"; 
 			return TYPE_FLOAT;
-		}
 		return UNKNOWN;
 	}
 	else if (isDouble(str))
-	{
-		std::cout << "double\n"; 
 		return TYPE_DOUBLE;
-	}
 	else if (isOnlyDigitInput(str))
-	{
-		std::cout << "int\n"; 
 		return TYPE_INT;
-	}
 	
 	return UNKNOWN;
 }

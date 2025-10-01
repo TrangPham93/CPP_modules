@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 10:44:52 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/01 14:43:17 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ public:
 	/* since it cannot be instantiated, so the object is not created and don't need to be deleted. If it's used as based, shouldn't delete destructor */
 	ScalarConverter() = delete;
 	~ScalarConverter();
+	ScalarConverter(const ScalarConverter& other) = delete;
+	ScalarConverter& operator=(const ScalarConverter& other) = delete;
 
 	static void convert (std::string str);
 };

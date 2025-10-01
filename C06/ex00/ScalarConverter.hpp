@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/09/30 22:49:10 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/01 10:44:52 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <iostream>
 #include <string>
 #include <iomanip>
-#include <climits>
+#include <limits>
 
 
 /* 

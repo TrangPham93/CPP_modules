@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:04:51 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 15:02:22 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/02 10:48:17 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,8 @@ static void	convertFromFloat(std::string str)
 		else
 			std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl;
 		// int
-		if (num > std::numeric_limits<int>::max() 
-			|| num < std::numeric_limits<int>::min())
+		if (num > static_cast<float>(std::numeric_limits<int>::max())
+			|| num < static_cast<float>(std::numeric_limits<int>::min()))
 			std::cout << "int: impossible" << std::endl;
 		else
 			std::cout << "int: " << static_cast<int>(num) << std::endl;

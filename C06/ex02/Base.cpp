@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 19:53:17 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/01 22:35:36 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/02 10:58:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	identify(Base& p)
 {
 	try
 	{
-		dynamic_cast<A&>(p);
+		(void)dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return ;	
 	}
@@ -62,7 +62,7 @@ void	identify(Base& p)
 	 
 	try
 	{
-		(dynamic_cast<B&>(p));
+		(void)(dynamic_cast<B&>(p));
 		std::cout << "B" << std::endl;
 		return;
 	}
@@ -70,7 +70,7 @@ void	identify(Base& p)
 	
 	try
 	{
-		(dynamic_cast<C&>(p));
+		(void)(dynamic_cast<C&>(p));
 		std::cout << "C" << std::endl;
 		return;
 	}

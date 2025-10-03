@@ -51,9 +51,3 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
-
-// int main()
-// {
-//     int * a = new int();
-//     std::cout << a << std::endl;
-// }

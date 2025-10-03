@@ -4,6 +4,8 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
+    std::cout << "\n---------subject-test----------------\n\n";
+
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -48,6 +50,42 @@ int main(int, char**)
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+
+    delete [] mirror;
+
+    std::cout << "\n---------test-1----------------\n\n";
+    try
+    {
+        Array<float> longArr(20);
+
+        for (unsigned int i = 0; i < longArr.size(); i++)
+        {
+            longArr[i] = static_cast<float>(i);
+        }
+        
+
+        Array<float> dupLongArr(longArr);
+        
+        longArr[5] = 5.8;
+        std::cout << "original arr: " << std::endl;
+        for (unsigned int i = 0; i < longArr.size(); i++)
+        {
+            std::cout << longArr[i] << ", ";
+        }
+        std::cout << std::endl;
+
+        std::cout << "duplicate arr: " << std::endl;
+
+        for (unsigned int i = 0; i < dupLongArr.size(); i++)
+        {
+            std::cout << dupLongArr[i] << ", ";
+        }
+        std::cout << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
     return 0;
 }

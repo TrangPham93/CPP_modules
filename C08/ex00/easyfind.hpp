@@ -6,7 +6,15 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:59:19 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/03 11:59:20 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/03 13:40:04 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+#include <iostream>
+
+template <typename T>
+void easyfind(T t, int num)
+{
+	
+}

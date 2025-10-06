@@ -6,37 +6,32 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:15:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/02 11:49:18 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/06 12:37:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "whatever.hpp"
+#include "easyfind.hpp"
 
 int main( void ) 
 {
-	int a = 2;
-	int b = 3;
+	std::array<int,6> arr = {1, 0, 3, 100, 5, -2};
 	
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
-	
-	std::string c = "chaine1";
-	std::string d = "chaine2";
-	
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	try
+	{
+		int pos = easyfind(arr, 5);
+		std::cout << "first occurance of 5: " << pos << std::endl;
 
-	float e = 5.4;
-	float f = 5.4;
-	
-	::swap(e, f);
-	std::cout << "e = " << e << ", f = " << f << std::endl;
-	std::cout << "min( e, f ) = " << ::min( e, f ) << std::endl;
-	std::cout << "max( e, f ) = " << ::max( e, f ) << std::endl;
+		int nePos = easyfind(arr, -2);
+		std::cout << "first occurance of -2: " << nePos << std::endl;
+		
+		int noPos = easyfind(arr, -1);
+		std::cout << "first occurance of -1: " << noPos << std::endl;
+		
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 	return 0;
 }

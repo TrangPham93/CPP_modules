@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:20 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/06 16:34:36 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/06 17:20:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,31 +23,74 @@ int main()
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
-		std::cout << sp.shortestSpan() << std::endl;
-		std::cout << sp.longestSpan() << std::endl;
+		std::cout << "shortest span: "<< sp.shortestSpan() << std::endl;
+		std::cout << "longest span: "<< sp.longestSpan() << std::endl;
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
 
-	std::cout << "\n---------subject-test---------\n\n";
-
-	Span longsp(15000);
-	std::vector<int> insertVec = {2, 23, -1, 8}; 
+	std::cout << "\n----------test-1--------\n\n";
 	try
 	{
+		Span longsp(15000);
+		std::vector<int> insertVec = {2, 23, -1, 8}; 
+		std::vector<int> longInsert(10000, 99);
+		
 		longsp.addNumber(0);
 		longsp.addNumber(insertVec.begin(), insertVec.end());
-		
+		std::cout << "shortest span: " << longsp.shortestSpan() << std::endl;
+		std::cout << "longest span: " << longsp.longestSpan() << std::endl;
+
+		longsp.addNumber(longInsert.begin(), longInsert.end());
+		std::cout << "shortest span: " << longsp.shortestSpan() << std::endl;
+		std::cout << "longest span: " << longsp.longestSpan() << std::endl;
+
+		longsp.addNumber(longInsert.begin(), longInsert.end());
+		std::cout << "shortest span: " << longsp.shortestSpan() << std::endl;
+		std::cout << "longest span: " << longsp.longestSpan() << std::endl;
 
 	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
 
+	std::cout << "\n----------test-2--------\n\n";
+	try
+	{
+		Span longsp(50000);
+		std::vector<int> longInsert;
+
+		for (int i = 0; i < 50000; i++)
+		{
+			longInsert.push_back(i);
+		}
+
+		longsp.addNumber(longInsert.begin(), longInsert.end());
+		std::cout << "shortest span: " << longsp.shortestSpan() << std::endl;
+		std::cout << "longest span: " << longsp.longestSpan() << std::endl;
+
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << "\n----------test-3--------\n\n";
+	try
+	{
+		Span longsp(12);
+		
+		longsp.addNumber(0);
+		std::cout << "shortest span " << longsp.shortestSpan() << std::endl;
+		std::cout << "longest span " << longsp.longestSpan() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 	return 0;
 }

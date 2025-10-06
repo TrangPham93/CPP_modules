@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:45 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/06 16:16:19 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/06 16:32:28 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,11 @@ unsigned int Span::longestSpan()
 	int min = *std::min_element(_vec.begin(), _vec.end());
 	return static_cast<unsigned int>(max - min);
 }
-
+/* std::distance: used to calculate the number of elements between two iterators. */
 void	Span::addNumber(std::vector<int>::iterator itbegin, 
 			std::vector<int>::iterator itend)
 {
-	if (_vec.size() + std::distance(itbegin, itend) >= _maxInt)
+	if (_vec.size() + std::distance(itbegin, itend) > _maxInt) 
 		throw std::runtime_error("Amount of numbers is larger than container's size");
-	for (std::vector<int>::iterator it = itbegin; it == itend; it++)
-	{
-		_vec.insert(_vec.end(), *it);
-	}
+	_vec.insert(_vec.end(), itbegin, itend);
 }

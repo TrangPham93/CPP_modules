@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:20 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/06 16:16:45 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/06 16:34:36 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ int main()
 	std::cout << "\n---------subject-test---------\n\n";
 
 	Span longsp(15000);
+	std::vector<int> insertVec = {2, 23, -1, 8}; 
 	try
 	{
 		longsp.addNumber(0);
-		longsp.addNumber(1);
-		// std::cout << std::size(longsp) << std::endl;
+		longsp.addNumber(insertVec.begin(), insertVec.end());
+		
+
 	}
 	catch(const std::exception& e)
 	{

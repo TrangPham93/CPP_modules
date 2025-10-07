@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/10/07 14:18:55 by trpham           ###   ########.fr        #
+#    Updated: 2025/10/07 16:32:44 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-HEADERS		= MutantStack.hpp 	
-SOURCES		= main.cpp
+HEADERS		= BitcoinExchange.hpp 	
+SOURCES		= main.cpp BitcoinExchange.cpp
 
 # Executables
-NAME		= mutant
+NAME		= btc
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./mutant"
+	@echo "Usage: ./btc"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

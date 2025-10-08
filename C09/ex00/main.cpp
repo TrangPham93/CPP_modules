@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:30:25 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/08 15:13:51 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/08 16:55:16 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,12 @@ static void trimString(std::string& str)
 		throw;
 	}
 }
-
+// read file line by line, check the input line and print to stdout
 static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 {
 	std::string line;
 
-	(void)exRate;
-	// read file
+	// (void)exRate;
 	while (getline(inputFile, line))
 	{
 		// std::cout << line << std::endl;	
@@ -53,24 +52,47 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 			{
 				std::cerr << "Error: " << e.what() << '\n';
 			}
-		std::cout << key << " => " << valueFloat << " = " << valueFloat << std::endl;	
+			if (valueFloat <= 0)
+			{
+				std::cout << NEG_INPUT_ERR << std::endl;	
+				continue;
+			}
+			else if (valueFloat >= 1000)
+			{
+				std::cout << TOO_LARGE_ERR << std::endl;	
+				continue;
+			}
+			else
+			{
+				float rate = exRate.getExRate(key);
+				std::cout << key << " => " << valueFloat << " = " 
+					<< valueFloat * rate << std::endl;	
+			}
 		}
 		else
 		{
-			std::cout << "Error: bad input => " << line << std::endl;	
+			std::cout << BAD_INPUT_ERR << line << std::endl;	
 		}
 	}
 			
+}
+
+static void mappingData(BitcoinExchange& exRate)
+{
+	
 }
 
 int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << "Error: could not open file." << std::endl;
+		std::cout << OPEN_FILE_ERR << std::endl;
 		return  EXIT_FAILURE;	
 	}
+	
 	BitcoinExchange exRate;
+	mappingData(exRate);
+	
 	try
 	{
 		std::fstream inputFile;
@@ -87,6 +109,6 @@ int main(int ac, char **av)
 	{
 		std::cerr << "Error: " << e.what() << '\n';
 	}
-	
+
 	return EXIT_SUCCESS;
 }

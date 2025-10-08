@@ -6,12 +6,13 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:09:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/07 17:18:39 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/08 11:56:00 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <map>
 
@@ -19,8 +20,7 @@
 class BitcoinExchange
 {
 private:
-	std::map<std::string, float> _exRate;
-	std::map<std::string, float> _inputPair;
+	std::map<std::string, float> _dataMap;
 	
 public:
 	BitcoinExchange() = default;

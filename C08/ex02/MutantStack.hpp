@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/06 13:28:48 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/07 11:44:58 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/08 11:25:39 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ public:
 	reverse_iterator rbegin()	{ return this->c.rbegin(); };
 	reverse_iterator rend()		{ return this->c.rend(); };
 
-	using const_reverse_iterator 	 = typename std::stack<T>::container_type::const_reverse_iterator 	;
+	using const_reverse_iterator 	
+		 = typename std::stack<T>::container_type::const_reverse_iterator 	;
 	const_reverse_iterator 	 rbegin() const	{ return this->c.rbegin(); };
 	const_reverse_iterator 	 rend() const	{ return this->c.rend(); };
 	

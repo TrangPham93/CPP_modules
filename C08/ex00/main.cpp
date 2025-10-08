@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 11:15:34 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/06 13:26:04 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/08 10:42:26 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ int main( void )
 	
 	try
 	{
-		// Iterator of vector container: This iterator is a wrapper around a pointer, not a pointer itself.
+		// Iterator of vector container: This iterator is a wrapper around a pointer, 
+		// not a pointer itself.
 		// It behaves like a pointer (supports *, ++, etc.),
 		// but you can’t directly print it — because std::ostream (<<) doesn’t
 		// know how to handle it.

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:30:25 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/08 16:55:16 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/10 17:12:13 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ static void trimString(std::string& str)
 		throw;
 	}
 }
+
+// static  convertStrToDate(std::string str)
+// {
+// 	tm tm;
+// }
+
 // read file line by line, check the input line and print to stdout
 static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 {
@@ -33,6 +39,7 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 	// (void)exRate;
 	while (getline(inputFile, line))
 	{
+		trimString(line);
 		// std::cout << line << std::endl;	
 		if (line == "date | value")
 			continue;
@@ -64,7 +71,18 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 			}
 			else
 			{
-				float rate = exRate.getExRate(key);
+				tm tm;
+				std::istringstream ss(key);
+				
+				ss >> std::get_time(&tm, "%Y-%m-%d");
+				if (ss.fail())
+				{
+					std::cout << BAD_INPUT_ERR << std::endl;
+					continue;
+				}
+				time_t date = mktime(&tm);
+				float rate = exRate.getExRate(date);
+				std::cout << "date: " << key << " rate: " << rate << std::endl;
 				std::cout << key << " => " << valueFloat << " = " 
 					<< valueFloat * rate << std::endl;	
 			}
@@ -79,7 +97,48 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 
 static void mappingData(BitcoinExchange& exRate)
 {
-	
+	std::fstream dataFilePtr;
+
+	dataFilePtr.open("data.csv", std::ios::in);
+	if (dataFilePtr.is_open())
+	{
+		std::string line;
+		while (getline(dataFilePtr, line))
+		{
+			trimString(line);
+			if (line == "date,exchange_rate")
+				continue;
+			// std::cout << line << std::endl;
+			size_t splitPos = line.find(",");
+			if (splitPos != std::string::npos)
+			{
+				std::string key = line.substr(0, splitPos);
+				trimString(key);
+
+				tm tm;
+				std::istringstream ss(key);
+				
+				ss >> std::get_time(&tm, "%Y-%m-%d");
+				if (ss.fail())
+				{
+					dataFilePtr.close();
+					throw std::runtime_error(DATE_CONVERT_ERR);
+				}
+				
+				tm.tm_mday
+				
+			
+				
+				std::string value = line.substr(splitPos + 1);
+				trimString(value);
+				float valueFloat = std::stof(value); 
+				exRate.addPair(date, valueFloat);
+			}
+		}
+		dataFilePtr.close();
+	}
+	else
+		throw std::runtime_error(OPEN_FILE_ERR);
 }
 
 int main(int ac, char **av)
@@ -103,7 +162,7 @@ int main(int ac, char **av)
 			inputFile.close();
 		}
 		else
-			throw std::runtime_error("could not open file.");
+			throw std::runtime_error(OPEN_FILE_ERR);
 	}
 	catch(const std::exception& e)
 	{

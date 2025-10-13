@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/10/07 14:18:55 by trpham           ###   ########.fr        #
+#    Updated: 2025/10/13 15:56:53 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
 OBJ_DIR		=./objs
  
 # Source files
-HEADERS		= MutantStack.hpp 	
-SOURCES		= main.cpp
+HEADERS		= RPN.hpp 	
+SOURCES		= main.cpp RPN.cpp
 
 # Executables
-NAME		= mutant
+NAME		= RPN
 
 # Object files
 OBJECTS		= $(patsubst %.cpp, $(OBJ_DIR)/%.o, $(SOURCES))

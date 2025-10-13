@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:09:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 11:07:53 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 12:26:18 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@
 #include <iomanip>
 
 #define BAD_INPUT_ERR "Error: bad input => "
+#define BAD_DATA_ERR "Error: data file is in incorrect form."
+#define INSERT_MAP_ERR "Error: insert data map failed."
+#define NO_UPDATED_RATE "Error: there is no updated rate within 30 days"
 #define NEG_INPUT_ERR "Error: not a positive number."
 #define TOO_LARGE_ERR "Error: too large a number."
 #define OPEN_FILE_ERR "Error: could not open file."
@@ -36,10 +39,9 @@ private:
 public:
 	BitcoinExchange() = default;
 	~BitcoinExchange()= default;
-	BitcoinExchange(const BitcoinExchange& other)= delete;
-	BitcoinExchange& operator= (const BitcoinExchange& other)= delete;
+	BitcoinExchange(const BitcoinExchange& other)= default;
+	BitcoinExchange& operator= (const BitcoinExchange& other)= default;
 
 	void		addPair( time_t& key, float& value);
-	// std::string	getDate();
 	float		getExRate(tm& date);
 };

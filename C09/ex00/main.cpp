@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:30:25 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/10 17:12:13 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 11:57:44 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,14 @@ static void trimString(std::string& str)
 	}
 }
 
-// static  convertStrToDate(std::string str)
-// {
-// 	tm tm;
-// }
-
 // read file line by line, check the input line and print to stdout
 static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 {
 	std::string line;
 
-	// (void)exRate;
 	while (getline(inputFile, line))
 	{
 		trimString(line);
-		// std::cout << line << std::endl;	
 		if (line == "date | value")
 			continue;
 		size_t index = line.find('|');
@@ -57,7 +50,7 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 			}
 			catch(const std::exception& e)
 			{
-				std::cerr << "Error: " << e.what() << '\n';
+				continue;
 			}
 			if (valueFloat <= 0)
 			{
@@ -71,18 +64,16 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 			}
 			else
 			{
-				tm tm;
+				tm tm = {}; // initialize all value to 0 here
 				std::istringstream ss(key);
-				
 				ss >> std::get_time(&tm, "%Y-%m-%d");
 				if (ss.fail())
 				{
 					std::cout << BAD_INPUT_ERR << std::endl;
 					continue;
 				}
-				time_t date = mktime(&tm);
-				float rate = exRate.getExRate(date);
-				std::cout << "date: " << key << " rate: " << rate << std::endl;
+				float rate = exRate.getExRate(tm);
+				// std::cout << "date: " << key << " rate: " << rate << std::endl;
 				std::cout << key << " => " << valueFloat << " = " 
 					<< valueFloat * rate << std::endl;	
 			}
@@ -108,27 +99,26 @@ static void mappingData(BitcoinExchange& exRate)
 			trimString(line);
 			if (line == "date,exchange_rate")
 				continue;
-			// std::cout << line << std::endl;
 			size_t splitPos = line.find(",");
 			if (splitPos != std::string::npos)
 			{
 				std::string key = line.substr(0, splitPos);
 				trimString(key);
 
-				tm tm;
+				// Initialize a tm structure to hold the parsed date
+				tm tm = {};
+				// Create a string stream to parse the date string
 				std::istringstream ss(key);
-				
+				// Parse the date string using std::get_time
 				ss >> std::get_time(&tm, "%Y-%m-%d");
+				// Check if parsing was successful
 				if (ss.fail())
 				{
 					dataFilePtr.close();
 					throw std::runtime_error(DATE_CONVERT_ERR);
 				}
-				
-				tm.tm_mday
-				
-			
-				
+				// Convert the parsed date to a time_t value
+				time_t date = mktime(&tm);
 				std::string value = line.substr(splitPos + 1);
 				trimString(value);
 				float valueFloat = std::stof(value); 

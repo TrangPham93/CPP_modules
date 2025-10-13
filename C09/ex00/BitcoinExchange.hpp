@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:09:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/10 17:03:30 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 11:07:53 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ public:
 
 	void		addPair( time_t& key, float& value);
 	// std::string	getDate();
-	float		getExRate(time_t date);
+	float		getExRate(tm& date);
 };

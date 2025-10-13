@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:09:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 12:26:18 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 15:55:23 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 #define BAD_INPUT_ERR "Error: bad input => "
 #define BAD_DATA_ERR "Error: data file is in incorrect form."
 #define INSERT_MAP_ERR "Error: insert data map failed."
-#define NO_UPDATED_RATE "Error: there is no updated rate within 30 days"
+#define NO_UPDATED_RATE "Error: there is no updated rate within 30 days => "
 #define NEG_INPUT_ERR "Error: not a positive number."
 #define TOO_LARGE_ERR "Error: too large a number."
 #define OPEN_FILE_ERR "Error: could not open file."

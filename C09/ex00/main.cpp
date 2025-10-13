@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:30:25 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 15:42:25 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 15:53:03 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ static void mappingInput(std::fstream& inputFile, BitcoinExchange& exRate)
 					
 				float rate = exRate.getExRate(tm);
 				if (rate == -1)
-					std::cout << NO_UPDATED_RATE << std::endl;
+					std::cout << NO_UPDATED_RATE << key << std::endl;
 				else
 					std::cout << key << " => " << valueFloat << " = " 
 						<< valueFloat * rate << std::endl;	

@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 15:10:39 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 15:41:42 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/13 15:48:57 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ float	BitcoinExchange::getExRate(tm& tm)
 {
 	// Convert the parsed date to a time_t value
 	time_t date = mktime(&tm);
+	if (difftime(date, _dataMap.begin()->first) < 0)
+		return (-1);
+	// std::cout << "time diff " << difftime(date, _dataMap.begin()->first) << std::endl;
+	// if (difftime(_dataMap.begin()->first, date) )
+	
 	auto it =_dataMap.find(date);
 	if (it != _dataMap.end())
 		return _dataMap[date];

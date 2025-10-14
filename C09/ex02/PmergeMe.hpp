@@ -6,17 +6,18 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:53:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 14:32:41 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 15:32:11 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-// #include <numeric>
-// #include <array>
 #include <vector>
+#include <string>
 
 #define INPUT_ERR "Error: input a sequence of positive intergers"
+#define OVERFLOW_ERR "Error: overflowed"
+
 
 class PmergeMe
 {
@@ -30,5 +31,7 @@ public:
 	PmergeMe& operator= (const PmergeMe& other) = default;
 
 	void addNumToVec(int num);
+	void printVec();
+	void sortVec();
 };
 

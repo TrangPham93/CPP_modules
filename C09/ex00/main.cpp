@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 16:30:25 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 15:53:03 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 14:06:59 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,7 +190,7 @@ int main(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		std::cout << OPEN_FILE_ERR << std::endl;
+		std::cerr << OPEN_FILE_ERR << std::endl;
 		return  EXIT_FAILURE;	
 	}
 	

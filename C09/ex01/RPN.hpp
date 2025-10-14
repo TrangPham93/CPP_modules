@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:57:11 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 12:47:26 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 14:16:37 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define DIV_0_ERR "Error: cannot divide by 0"
 #define OTHER_ERR "Error"
 
+/* stack: access in order of LIFO */
 class RPN
 {
 private:

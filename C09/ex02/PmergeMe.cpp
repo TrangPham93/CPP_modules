@@ -6,9 +6,14 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:54:15 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 13:54:22 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 14:25:20 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+	
+void PmergeMe::addNumToVec(int num)
+{
+	_vec.push_back(num);
+}

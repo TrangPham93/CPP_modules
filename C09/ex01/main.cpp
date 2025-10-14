@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:57:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 12:53:19 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 13:48:55 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void processInput(std::string input, RPN& rpn)
 {
 	for (size_t i = 0; i < input.length(); i++)
 	{
-		if (isdigit(input[i]))
+		if (isdigit(input[i]) && (input[i + 1] == ' ' ))
 		{
 			int num = input[i] - '0';
 			rpn.addNumber(num);
@@ -61,5 +61,5 @@ int main(int ac, char **av)
 	{
 		std::cerr << e.what() << '\n';
 	}
-	
+	return EXIT_SUCCESS;
 }

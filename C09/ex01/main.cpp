@@ -6,13 +6,50 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:57:07 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/13 15:58:16 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/14 11:11:56 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-int main()
+
+static void calculateRPN(std::string input, RPN& rpn)
 {
+	for (size_t i = 0; i < input.length(); i++)
+	{
+		if (isdigit(input[i]))
+		{
+			if (rpn.size() < 2)
+			{
+				int num = input[i] - '0';
+				rpn.addNumber(num);
+			}
+			else
+				throw std::runtime_error(INPUT_ERR);
+		}
+		
+	}
+}
+
+
+int main(int ac, char **av)
+{
+	if (ac != 2)
+	{
+		std::cout << INPUT_ERR << std::endl;
+		return EXIT_FAILURE;
+	}
+	std::string input = av[1];
+	
+	RPN rpn;
+	try
+	{
+		calculateRPN(input, rpn);
+		rpn.printFL();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	
 }

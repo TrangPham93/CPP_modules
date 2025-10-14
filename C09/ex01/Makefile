@@ -6,7 +6,7 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/10/13 15:56:53 by trpham           ###   ########.fr        #
+#    Updated: 2025/10/14 11:03:42 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ all			: $(NAME)
 $(NAME)		: $(OBJECTS) 
 	@$(CXX) $(CXXFLAGS) $^ -o $@
 	@echo "💻 Make succeeded."
-	@echo "Usage: ./mutant"
+	@echo "Usage: ./RPN"
 
 $(OBJ_DIR)/%.o:	%.cpp $(HEADERS)
 	@mkdir -p $(@D)

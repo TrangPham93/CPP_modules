@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:53:31 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 15:32:11 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/15 12:26:28 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+// #include <algorithm>
 
 #define INPUT_ERR "Error: input a sequence of positive intergers"
 #define OVERFLOW_ERR "Error: overflowed"

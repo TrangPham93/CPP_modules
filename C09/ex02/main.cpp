@@ -6,7 +6,7 @@
 /*   By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/14 13:52:16 by trpham            #+#    #+#             */
-/*   Updated: 2025/10/14 15:33:08 by trpham           ###   ########.fr       */
+/*   Updated: 2025/10/15 10:35:14 by trpham           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void processInput(char** av, PmergeMe& sequence)
 {
 	for (size_t i = 0; av[i]; i++)
 	{
-		size_t pos;
+		size_t pos; // position of the first unconverted char
 		std::string input = av[i];
 		// check if input is integer with pos
 		int num;

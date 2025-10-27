@@ -6,13 +6,13 @@
 #    By: trpham <trpham@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/10 21:18:16 by trpham            #+#    #+#              #
-#    Updated: 2025/10/07 16:32:44 by trpham           ###   ########.fr        #
+#    Updated: 2025/10/27 18:21:53 by trpham           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Compiler and flags
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++20
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++20 -MMD -MP
 
 # Directories
 OBJ_DIR		=./objs
@@ -56,5 +56,7 @@ fclean		: clean
 	fi
 
 re			: fclean all
+
+-include $(OBJS:.o=.d)
 
 .PHONY		: all clean fclean re

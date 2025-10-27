@@ -21,7 +21,9 @@ Linux OS
 git clone https://github.com/TrangPham93/CPP_modules.git CPP
 cd CPP
 ```
-```cd <path_to_exercise_you_wish>```
+```bash
+cd <path_to_exercise_you_wish>
+```
 
 
 #### 2. Compile the Project 
